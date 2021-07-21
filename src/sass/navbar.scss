@@ -1,0 +1,23 @@
+@import 'globals.scss';
+
+
+.component-navbar{ 
+  .container{
+    @include size(100%, $navbar-height); 
+    @include color($lightest, $darkest);
+    @include flexbox(space-between);
+
+    .component-primary-links{
+      li{
+        display: inline-block;
+        line-height: $navbar-height;
+        padding: 0px 25px;   
+      }
+    }
+  }
+
+  
+
+
+
+}
