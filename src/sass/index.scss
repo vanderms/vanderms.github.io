@@ -1,0 +1,11 @@
+@import 'globals.scss';
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  @include color($dark, $light);
+  margin: 0px;
+}
+

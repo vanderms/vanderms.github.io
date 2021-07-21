@@ -1,7 +1,11 @@
+import Layout from './components/layout';
+
 
 function App() {
   return (
-   <h1>Hello React!!!</h1>
+    <Layout>
+      <h1>Hello React</h1>
+    </Layout>
   );
 }
 

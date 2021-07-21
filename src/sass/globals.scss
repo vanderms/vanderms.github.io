@@ -1,0 +1,127 @@
+$primary: #00CC94;
+$primary-dark: #008A64;
+$light: #DCDCDC;
+$lightest: #fff;
+$dark: #222222;
+$darkest: #000;
+
+
+$navbar-height: 80px;
+$sidebar-menu-height: 56px;
+$rounded: 5px;
+
+
+$laptop: 1547px;
+$tablet: 1079px;
+$mobile: 679px;
+$small-mobile: 339px;
+
+
+@mixin media-query($breakpoint){
+  @media screen and (max-width: $breakpoint){
+    @content;
+  }
+}
+
+
+@mixin hide-on($breakpoint){
+  @media screen and (max-width: $breakpoint){
+    display: none;
+  }
+}
+
+
+@mixin margin-container($right: true, $left: true){
+
+  @if $right{
+    margin-right: calc(50% - 650px);
+    @include media-query($laptop){
+      margin-right: 8%;
+    }  
+    @include media-query($tablet){
+      margin-right: 6%;
+    }
+    @include media-query($mobile){
+      margin-right: 3%;
+    }
+    @include media-query($small-mobile){
+      margin-right: 5px;
+    }    
+  }
+
+
+  @if $left{
+    margin-left: calc(50% - 650px);
+
+    @include media-query($laptop){
+      margin-left: 8%;
+    }  
+    @include media-query($tablet){
+      margin-left: 6%;
+    }
+    @include media-query($mobile){
+      margin-left: 3%;
+    }
+    @include media-query($small-mobile){
+      margin-left: 5px;
+    }
+  }
+}
+
+
+@mixin padding-container($right: true, $left: true){
+
+  @if $right{
+    padding-right: calc(50% - 650px);  
+  
+    @include media-query($laptop){
+      padding-right: 8%;
+    }  
+    @include media-query($tablet){
+      padding-right: 6%;
+    }
+    @include media-query($mobile){
+      padding-right: 3%;
+    }
+    @include media-query($small-mobile){
+      padding-right: 5px;
+    }
+  }
+
+  @if $left{    
+    padding-left: calc(50% - 650px);
+  
+    @include media-query($laptop){      
+      padding-left: 8%;
+    }  
+    @include media-query($tablet){     
+      padding-left: 6%;
+    }
+    @include media-query($mobile){      
+      padding-left: 3%;
+    }
+    @include media-query($small-mobile){      
+      padding-left: 5px;
+    }
+  } 
+}
+
+
+@mixin color($background-color, $text-color){
+  background-color: $background-color;
+  color: $text-color;
+}
+
+
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+
+@mixin flexbox($justify, $direction : row){
+  display: flex; 
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: $justify;
+}
