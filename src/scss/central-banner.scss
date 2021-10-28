@@ -1,0 +1,65 @@
+@import 'utilities.scss';
+
+
+.section-central-banner{
+  .section-container{   
+    @include size(100%, 320px);   
+    position: relative;
+    
+    .background-image{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-image: url(/assets/images/1920/notebook.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      @include size(100%, 100%);
+      z-index: 0;
+    }
+
+    .overlay{
+      background-color: black;
+      opacity: 0.8;
+      position: absolute;
+      @include size(100%, 100%);
+      z-index: 1;
+    }
+
+    .content {
+      @include container;
+      @include flex(column, center, center);
+      position: absolute;
+      @include size(100%, 100%);
+      z-index: 2;
+      
+      .title{
+        font-size: 52px;
+        font-weight: 900;
+        @include media($laptop){ font-size: 38px; }
+        @include media($mobile){ font-size: 26px; }
+        @include media($small-mobile){ font-size: 22px; }
+        color: gainsboro;
+        em{ color: $primary-light; }
+        text-align: center;
+      }
+      .cta-container{
+        margin-top: 40px;
+        
+        .cta-primary{
+          @include cta-primary; 
+          @include media($small-mobile){ display: block; }         
+        }
+        .cta-secondary{
+          @include cta-secondary;
+          margin-left: 20px;
+          @include media($small-mobile){ 
+            display: block; 
+            margin-left: 0px;
+            margin-top: 20px;
+          } 
+        }
+      }
+    }
+  }
+}
