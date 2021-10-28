@@ -67,7 +67,7 @@ class Portfolio {
       
       const icons = card.querySelector('.icons-container');
       card.querySelector("img").src = `/assets/images/960/${project.thumbnail}`;
-      card.querySelector("a").href = `?project=${project.link}`;
+      card.querySelector("a").href = `?project=${project.id}`;
       card.querySelector(".title").textContent = project.title;
       let hasIcon = false;
       icons.innerHTML = "";

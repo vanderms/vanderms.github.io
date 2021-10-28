@@ -1,0 +1,133 @@
+@import 'utilities.scss';
+
+
+.section-recent-posts{
+  @include container;
+  &.section{
+    >*:not(:first-child){margin-top: 70px; }
+  }
+
+  .cards-container{
+    >*:not(:first-child){margin-top: 70px;}
+    @include flex(column, center, center);
+    
+
+    .card-post{
+      @include flex(row, space-between, center);
+      @include size(960px,  240px); 
+      @include media($tablet){
+        @include size(480px, unset);        
+        flex-direction: column;       
+        &.reverse{
+          flex-direction: column-reverse;
+        }
+      }
+      @include media($mobile){        
+        width: 100%;
+      }
+
+      a{
+        @include link-no-decoration;
+      }
+
+      .image-container{           
+        @include size(440px, 240px);   
+        @include media($mobile){
+          position: relative;
+          width: 100%;
+          padding-bottom: 55%;
+          height: unset;
+        }
+        
+        img{
+          @include size(100%, 100%);
+          object-fit: cover;
+          object-position: center;
+          border-radius: 5px;
+          @include media($mobile){
+            position: absolute;
+            top: 0px;
+            left: 0px;
+          }
+        }    
+      }
+
+      .content{       
+        @include size(450px, 240px);      
+        @include flex(column, flex-start, flex-start);
+        @include media($tablet){
+          margin-top: 60px;         
+          padding: 0px 5px; 
+        }
+
+        @include media($mobile){
+          @include size(100%, unset);
+        }
+        
+        header {
+          width: 100%;
+        }
+
+        .title{
+          margin-bottom: 12px;
+          &:hover{
+            text-decoration: underline;
+          }
+        }        
+
+        .sep{          
+          width: 100%;
+          border-top: 1px solid darkgrey;
+          margin: 8px 0px 8px 0px;
+        }
+        
+        .data{
+          @include flex(row, flex-start, center);
+          @include media($mobile){
+            flex-direction: column;            
+            align-items: flex-start;
+          }
+
+          .item{
+            &:not(:first-child){margin-left: 16px;}
+            >*:not(:first-child){margin-left: 8px;}
+            @include media($mobile){
+              &:not(:first-child){
+                margin-top: 2px;
+                margin-left: 0px;
+              }
+            }
+
+            @include flex(row, flex-start, center);
+            .text{
+              font-size: 15px;
+              font-weight: 300;
+            }
+            svg{
+              height: 12px;
+              width: auto;
+            }
+          }
+        }
+
+        .summary-container{
+          flex: 1;
+          margin-top: 12px;
+          line-height: 1.6;
+        }        
+      }
+      .read-more{
+        @include link-no-decoration;
+        font-weight: bold;
+        &:hover{
+          text-decoration: underline;          
+        }
+        @include media($mobile){
+          margin-top: 20px;
+        }
+        
+      }
+
+    }
+  }
+}

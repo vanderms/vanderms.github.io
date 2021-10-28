@@ -41,7 +41,7 @@
       padding: 8px;
         
       border-radius: 3px;
-      background-color: white;
+      //background-color: white;
       color: black;
       &:hover{               
         .img-container{
@@ -76,7 +76,7 @@
         @include flex(row, space-between, center);
         .title{
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 400;
         }
 
         .icons-container{
