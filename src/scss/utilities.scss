@@ -1,0 +1,158 @@
+//colors
+$primary: #008064;
+$primary-light: #00BB94;
+$primary-dark: #005946;
+$bg-light: #E5E3E1;
+
+
+//breakpoints
+$laptop: 1499px;
+$tablet: 1079px;
+$mobile: 679px;
+$small-mobile: 359px;
+
+//rounded borders
+$rounded: 1000px;
+
+
+
+//media
+@mixin media($breakpoint){
+  @media screen and (max-width: $breakpoint){
+    @content;
+  }
+}
+
+@mixin only-tablet(){
+  @media screen and (min-width: 680px) and (max-width: $tablet){
+    @content;
+  }
+}
+
+
+//container
+@mixin container($left: true, $right: true){
+
+  @if $right {
+    padding-right: calc(50% - 650px);
+
+    @include media($laptop){
+      padding-right: 8%;      
+    }  
+    @include media($tablet){
+      padding-right: 6%;      
+    }
+    @include media($mobile){
+      padding-right: 3%;      
+    }
+    @include media($small-mobile){
+      padding-right: 2px;      
+    }
+  }
+
+  @if $left {
+    padding-left: calc(50% - 650px);
+
+    @include media($laptop){     
+      padding-left: 8%;
+    }  
+    @include media($tablet){      
+      padding-left: 6%;
+    }
+    @include media($mobile){      
+      padding-left: 3%;
+    }
+    @include media($small-mobile){      
+      padding-left: 2px;
+    }
+  }
+}
+
+
+
+
+@mixin color($background-color, $text-color){
+  background-color: $background-color;
+  color: $text-color;
+}
+
+
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+
+@mixin flex($direction : row, $justify: center, $align-items: center){
+  display: flex; 
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify;
+}
+
+
+
+@mixin horizontal-gap($size){  
+  &:not(:first-child){
+    margin-left: $size;
+  }  
+}
+
+
+@mixin cta-primary{  
+  cursor: pointer;
+  padding: 8px 16px;  
+  background-color: $primary;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;  
+}
+
+
+@mixin cta-secondary{  
+  cursor: pointer;
+  border: 1px solid $primary-dark;
+  color: $primary-light;
+  text-decoration: none;
+  padding: 7px 15px;  
+  border-radius: 5px;  
+}
+
+@mixin anchor-child{
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@mixin li-child{
+  li {
+    list-style-type: none;
+  }  
+}
+
+@mixin ul-child{
+  ul{
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@mixin border-box{
+  box-sizing: border-box;
+  *, *:after, *:before{
+    box-sizing: border-box;
+  }
+}
+
+@mixin link-no-decoration{
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin ul-no-decoration{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}

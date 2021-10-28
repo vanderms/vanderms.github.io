@@ -1,0 +1,124 @@
+@import 'utilities.scss';
+
+$navbar-height: 80px;
+$sidebar-height: 56px;
+
+
+@mixin btn {  
+  display: none;
+  @include media($tablet){   
+    @include flex;
+    @include size($sidebar-height, $sidebar-height);  
+    position: absolute;
+    top: 0px;
+    right: 6px;    
+    padding: 5px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;   
+  }  
+}
+
+.navbar-overlay{
+  display: none;
+  @include media($tablet){
+    display: block;
+    position: fixed;
+    @include size(100%, 100vh);
+    opacity: 0.75;
+    z-index: 99;
+    background-color: black;
+    top: 0px;
+    left: 0px;
+    &.close{
+      display: none;
+    }
+  }
+}
+
+
+.sidebar-bar{
+  display: none;
+  @include media($tablet){    
+    @include size(100%, $sidebar-height);
+    display: block;
+    position: fixed;
+    z-index: 98;    
+    background-color: black;
+  }
+  .menu-btn{
+    display: none;
+    &.close {
+      @include btn;
+    }    
+  }
+  
+}
+
+.navbar-placeholder{
+  height: $navbar-height;
+  @include media($tablet){
+    height: $sidebar-height;
+  }
+}
+
+.navbar {
+  @include container;
+  @include flex(row, space-between, center);
+  @include size(100%, $navbar-height);
+  position: fixed;
+  background-color: white;
+  color: black;  
+  z-index: 100;
+  background-color: black;
+  color: white;
+
+  a {
+    @include link-no-decoration;
+    cursor: pointer;
+  }
+
+  .close-btn{
+    @include btn;
+  }
+
+  .navlinks{
+    @include ul-no-decoration;  
+    @include flex(row, flex-start, center);
+    li { margin-left: 50px; }
+    
+  }
+
+  .social-links{
+    @include flex(row, flex-end, center);
+    @include ul-no-decoration;    
+    li:not(:first-child) { margin-left: 40px; }
+  }
+
+  @include media($tablet){
+    @include size(Min(400px, 80%), 100vh);
+    @include flex(column, flex-start, center);
+    padding-top: 40px;
+    transition: left 0.25s;
+    left: 0px;
+
+    &.close{
+      left: -100%;
+    }
+
+    .logo-container, .navlinks, .social-links{
+      margin-top: 50px;
+    }
+
+    .navlinks{
+      flex-direction: column;      
+      li{margin-left: 0px}
+      li:not(:first-child){ margin-top: 20px; }      
+    }
+  }
+
+  @include media($small-mobile){
+    @include size(100%, 100vh);
+  }
+
+}

@@ -1,0 +1,86 @@
+@import 'utilities.scss';
+
+$sidebar-height: 56px;
+$navbar-height: 80px;
+
+@mixin cover-size{
+  min-height: calc(100vh - $navbar-height);
+  width: 100%;
+}
+
+.section-cover{
+  @include container;
+  @include cover-size;
+  position: relative;
+
+  .background-image{
+    @include cover-size();
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    background-image: url(/assets/images/1920/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+  }
+
+  .overlay{
+    @include cover-size();
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.8;
+  }
+
+  .content {
+    @include cover-size();
+    width: calc(Min(100%, Max(600px, 60%)));
+    @include flex(column, center, flex-start);
+    position: relative;
+    z-index: 2;
+    >*:not(:first-child){margin-top: 60px;}
+    padding-top: 40px;
+    @include media($small-mobile){ padding-top: 0px };
+    color: white;
+
+    header{
+      >*:not(:first-child){margin-top: 8px;}
+     
+      h1{
+        color: $primary-light;
+      }
+
+      .presentation{
+        line-height: 1.6;
+        font-weight: 300;        
+        font-style: italic;
+        font-size: 18px;
+        @include media($laptop){font-size: 16px;}
+        
+      }
+    }
+
+    .cta-container{      
+      >*:not(:first-child){ margin-left: 20px; }
+      .cta-primary{
+        @include cta-primary;
+      }
+
+      .cta-secondary{
+        @include cta-secondary;
+      }
+      @include media($small-mobile){
+        @include flex(column, flex-start, flex-start);
+        >*:not(:first-child){ margin-left: 0px; margin-top: 20px;}
+      }
+    }
+    
+  }
+
+
+
+
+}
