@@ -78,14 +78,36 @@ h2{
     color: black;
   }
 
-  .separator{
+  .separator {
     @include flex(row, center, center);
     >*:not(:first-child){margin-left: 8px;}
     span{
       width: 20px;
       border-top: 1px solid black;
     }
+
+    svg{
+      height: 15px;
+      width: auto;
+    }
   }
   
+
+}
+
+footer{
+  background-color: black;
+  color: white;
+  height: 200px;
+  padding-top: 60px;
+  @include flex(column, space-between, center);
+
+  a{
+    @include link-no-decoration;
+  }
+  div{
+    font-size: 13px;
+    font-weight: 300;
+  }
 
 }

@@ -82,23 +82,35 @@ $sidebar-height: 56px;
     @include btn;
   }
 
+  .links{
+    @include flex(row, flex-end, center); 
+    @include media($tablet){
+      flex-direction: column;
+    }   
+  }
+
   .navlinks{
     @include ul-no-decoration;  
     @include flex(row, flex-start, center);
-    li { margin-left: 50px; }
+    li { margin-left: 50px; }    
     
   }
 
   .social-links{
     @include flex(row, flex-end, center);
     @include ul-no-decoration;    
+    margin-left: 80px;
+    @include media($tablet){
+      margin-left: 0px;
+      margin-top: 60px;
+    }
     li:not(:first-child) { margin-left: 40px; }
   }
 
   @include media($tablet){
     @include size(Min(400px, 80%), 100vh);
     @include flex(column, flex-start, center);
-    padding-top: 40px;
+    padding-top: 80px;
     transition: left 0.25s;
     left: 0px;
 

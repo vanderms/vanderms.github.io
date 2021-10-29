@@ -1,0 +1,75 @@
+@import 'utilities.scss';
+
+.section-contact{
+  @include flex(column, flex-start, center);
+  margin-bottom: 80px;
+  &.section{
+    padding-top: 120px;
+  }
+  
+
+  
+
+  .contact-form{    
+    display: grid;
+    grid-template-columns: 50% 50%;  
+    gap: 16px;  
+    width: 600px; 
+    margin-top: -40px;      
+    padding: 0px 40px;
+    border-radius: 5px;       
+    z-index: 3;
+    background-color: $bg-light;
+    @include media($tablet){
+      width: 480px;
+      padding: 0px;      
+    }
+
+    @include media($mobile){
+      width: 100%;
+      grid-template-columns: 100%; 
+      
+    }   
+  }
+ 
+  .item{
+    @include flex(column, flex-start, flex-start);     
+    &.message{
+      grid-column: 1 / span 2;
+      @include media($mobile){
+        grid-column: unset;
+      }
+    }
+
+    &.submit{
+      grid-column: 1 / span 2;
+      @include media($mobile){
+        grid-column: unset;
+      }
+      
+      input{
+        font-weight: 600;
+        cursor: pointer;
+        @include cta-primary;
+      }
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    input, textarea{           
+      width: 100%;    
+      border-radius: 3px;
+      border: 1px solid #BBB;     
+      padding: 6px 6px;
+      font-size: 15px;      
+    }
+
+    textarea{
+      resize: none;
+      height: 120px;
+    }
+  }
+}
