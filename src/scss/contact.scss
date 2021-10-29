@@ -2,6 +2,7 @@
 
 .section-contact{
   @include flex(column, flex-start, center);
+  @include container;
   margin-bottom: 80px;
   &.section{
     padding-top: 120px;
