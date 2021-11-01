@@ -40,16 +40,11 @@
     .card{
       padding: 8px;
         
-      border-radius: 3px;
-      //background-color: white;
-      color: black;
-      &:hover{               
-        .img-container{
-          img{
-            width: calc(100% + 8px);           
-            left: -4px;            
-          }
-        }        
+      border-radius: 3px;      
+      color: black;     
+
+      .project-link{
+        @include link-no-decoration;
       }
 
       .img-container{
@@ -58,7 +53,7 @@
         position: relative;
         overflow: hidden;
         img{
-          transition: all 0.5s;
+          
           border-radius: 3px;
           position: absolute;
           top: 0px;
@@ -77,6 +72,10 @@
         .title{
           font-size: 15px;
           font-weight: 400;
+          &:hover{
+            text-decoration: underline;
+            font-weight: 600;
+          }
         }
 
         .icons-container{
