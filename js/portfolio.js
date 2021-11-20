@@ -1,39 +1,28 @@
+import Pagination from "./pagination.js";
+
+
 class Portfolio {
 
-  constructor(){    
+  constructor(){
 
     this.callbacks = [];
     this.projects = null; 
     this.section = document.querySelector(".section-portfolio");
     this.container = this.section.querySelector('.cards-container');
     this.cards = this.container.querySelectorAll(".card");  
-    this.pagination = this.section.querySelectorAll('.pagination button');     
+    this.pagination = new Pagination(document.querySelector('.pagination'), page => this.update(page))
 
-    this.addListener((projects)=>{ this.update(projects, 1); });    
+    this.addListener(()=> this.update(1));    
 
-    this.pagination.forEach(button =>{
-      button.addEventListener('click', ()=>{
-        if(button.textContent != "..."){
-          this.update(this.projects, parseInt(button.textContent));
-        }
-      })
-    });
     this.fetchData();
   }
 
   async fetchData(){
-    try { 
-      const response = await fetch('/assets/portfolio/portfolio.json');
-      const data = await response.json();
-      this.projects = data.projects;
-      this.callbacks.forEach(callback => {
-        try { callback(this.projects) }
-        catch(error){ console.log(error.message); }
-      });
-    }
-    catch(error){
-      console.log(error.message);
-    }    
+    
+    const response = await fetch('/assets/portfolio/portfolio.json');
+    const data = await response.json();
+    this.projects = data.projects;
+    this.callbacks.forEach(callback => callback(this.projects));        
   }
 
   addListener(callback){
@@ -46,14 +35,15 @@ class Portfolio {
   }
 
 
-  update(projects, page){    
-    this.updateCards(projects, page);
-    this.setPagination(projects, page);
+  update(page){    
+    this.updateCards(this.projects, page);
+    this.pagination.update(this.projects.length, page);
   }
 
 
   updateCards(projects, page){
     
+    console.log(projects);
     const start = (page - 1) * 6;    
 
     this.cards.forEach((card, index)=>{
@@ -62,9 +52,10 @@ class Portfolio {
         card.classList.add("hidden");
         return;
       }
-
+      console.log(start);
       const project = projects[start + index];
-      
+      console.log(project);
+
       const icons = card.querySelector('.icons-container');
       card.querySelector("img").src = `/assets/images/960/${project.thumbnail}`;
       card.querySelector("a").href = `?project=${project.id}`;
@@ -86,99 +77,11 @@ class Portfolio {
         const default_icon = document.querySelector(`.icon-project-default`); 
         icons.appendChild(default_icon.content.cloneNode(true));   
       }
-
       card.classList.remove("hidden");
-
-
     });    
-  }
-
-  setPagination(projects, page){
-
-    const totalPages = Math.ceil(projects.length / 6);   
-    
-    if(totalPages == 1){
-      this.pagination.forEach(btn => btn.classList.add('hidden'));
-    }
-
-    else if(totalPages <= 7){
-      this.pagination.forEach((btn, index) =>{
-        index++;       
-        if(index <= totalPages){
-          btn.textContent = index;
-          btn.classList.remove('hidden');
-        } else{
-          btn.classList.add('hidden');
-        }
-      });
-    }
-
-    else if(page < 4){     
-      this.pagination.forEach((btn, index) =>{
-        index++;
-        btn.classList.remove('hidden');
-        if(index <= 5){
-          btn.textContent = index;          
-        }
-        else if(index == 6){
-          btn.textContent = "...";
-        }
-        else {
-          btn.textContent == totalPages;
-        }
-      });
-    }
-
-    else if ((totalPages - page) < 4){
-
-      this.pagination.forEach((btn, index) =>{
-        index++;
-        btn.classList.remove('hidden');
-        if(index == 1){
-          btn.textContent = index;
-        }
-        else if(index == 2){
-          btn.textContent = "...";
-        }
-        else {
-          btn.textContent = totalPages - 5 + (index - 2);
-        }
-      });
-    }
-
-    else {
-      this.pagination.forEach((btn, index) =>{
-        index++;
-        btn.classList.remove('hidden');
-        if(index == 1){
-          btn.textContent = index;
-        }
-        else if(index == 7){
-          btn.textContent = totalPages;
-        }
-        else if(index == 2 || index == 6){
-          btn.textContent = "...";
-        }
-        else{
-          btn.textContent = page + (index - 4);
-        }
-      });
-    }
-
-    this.pagination.forEach((btn)=>{
-      if(parseInt(btn.textContent) == page){
-        btn.classList.add("active");
-      } 
-      else{
-        btn.classList.remove('active');
-      }
-    })
-  }
+  }  
 }
 
 
 const instance = new Portfolio();
-
 export default instance;
-
-

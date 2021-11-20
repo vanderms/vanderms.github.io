@@ -12,7 +12,7 @@ $sidebar-height: 56px;
     position: absolute;
     top: 0px;
     right: 6px;    
-    padding: 5px;
+    padding: 2px;
     border: none;
     background-color: inherit;
     cursor: pointer;   
@@ -47,9 +47,18 @@ $sidebar-height: 56px;
     background-color: black;
   }
   .menu-btn{
-    display: none;
+    display: none;    
     &.close {
       @include btn;
+      .hamburguer{
+        @include flex(column, space-between, center);
+        @include size(28px, 18px);
+        span {
+          border-top: 2px solid white;
+          width: 100%;
+          display: inline-block;
+        }
+      }
     }    
   }
   
@@ -80,6 +89,25 @@ $sidebar-height: 56px;
 
   .close-btn{
     @include btn;
+   
+    .drawning {
+      transform: rotate(45deg);
+      position: relative;
+      @include size(22px, 22px);
+      span:first-child{
+        position: absolute;
+        top: 10px;
+        border-top: 2px solid white;
+        width: 22px;
+        left: 0px;
+      }
+      span:last-child{
+        position: absolute;
+        height: 22px;
+        left: 10px;
+        border-left: 2px solid white;
+      }
+    }
   }
 
   .links{
@@ -108,7 +136,7 @@ $sidebar-height: 56px;
   }
 
   @include media($tablet){
-    @include size(Min(400px, 80%), 100vh);
+    @include size(Min(400px, 90%), 100vh);
     @include flex(column, flex-start, center);
     padding-top: 80px;
     transition: left 0.25s;
