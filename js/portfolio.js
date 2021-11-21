@@ -41,9 +41,8 @@ class Portfolio {
   }
 
 
-  updateCards(projects, page){
-    
-    console.log(projects);
+  updateCards(projects, page){    
+   
     const start = (page - 1) * 6;    
 
     this.cards.forEach((card, index)=>{
@@ -52,9 +51,8 @@ class Portfolio {
         card.classList.add("hidden");
         return;
       }
-      console.log(start);
-      const project = projects[start + index];
-      console.log(project);
+      
+      const project = projects[start + index];      
 
       const icons = card.querySelector('.icons-container');
       card.querySelector("img").src = `/assets/images/960/${project.thumbnail}`;

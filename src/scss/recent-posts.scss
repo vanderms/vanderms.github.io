@@ -112,8 +112,14 @@
 
         .summary-container{
           flex: 1;
-          margin-top: 12px;
-          line-height: 1.6;
+          margin-top: 12px;          
+          width: 100%;
+
+          .text{
+            height: 100px;
+            overflow: hidden;
+            line-height: 25px;
+          }
         }        
       }
       .read-more{

@@ -4,7 +4,7 @@
     "id": "pillars-of-creation",
     "title": "Pilares da Criação",
     "thumbnail" : "pillars-of-creation.jpg",   
-    "data" : "12/5/2020",
+    "date" : "12/5/2020",
     "author" : "vanderms",     
     "tags": ["ciência", "astronomia"]
     },
@@ -12,7 +12,7 @@
       "id": "pillars-of-creation-2",
       "title": "Pilares da Criação 2",
       "thumbnail" : "pillars-of-creation.jpg",   
-      "data" : "12/5/2020",
+      "date" : "12/5/2020",
       "author" : "vanderms",       
       "tags": ["nebulosas", "astronomia"]
     }
