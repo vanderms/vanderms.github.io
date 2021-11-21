@@ -9,15 +9,39 @@ class Navbar {
     this.overlay = document.querySelector('.navbar-overlay');
     this.overlay.addEventListener('click', ()=> this.close());
     this.closeBtn.addEventListener('click', ()=> this.close());
-    this.menuBtn.addEventListener('click', ()=> this.open());
+    this.menuBtn.addEventListener('click', ()=> this.open());    
+    
+    this.links = {
+      home: this.navbar.querySelector('.home-link'),
+      portfolio: this.navbar.querySelector('.portfolio-link'),
+      contato: this.navbar.querySelector('.contato-link'),
+      blog: this.navbar.querySelector('.blog-link')
+    }
 
-
+    Router.onUpdate((hash)=>this.setActiveLink(hash));
+    this.setActiveLink(window.location.hash); 
 
   }
 
-  setActiveLink(hash){
-    
 
+  setActiveLink(hash){
+
+    this.removeAllActiveLinks();
+    if(hash === '' || hash === '#'){
+      this.links.home.classList.add('active'); 
+    }
+    else if(hash === "#portfolio"){
+      this.links.portfolio.classList.add('active'); 
+    }
+    else if(hash === '#contato'){
+      this.links.contato.classList.add('active');
+    }
+  }
+
+  removeAllActiveLinks(){
+    for(let link in this.links){    
+      this.links[link].classList.remove('active');
+    }    
   }
 
   open(){

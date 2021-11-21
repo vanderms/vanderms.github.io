@@ -87,6 +87,10 @@ $sidebar-height: 56px;
     cursor: pointer;
   }
 
+  .router-link.active{
+    color: $primary-light;
+  }
+
   .close-btn{
     @include btn;
    

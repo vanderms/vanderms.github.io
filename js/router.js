@@ -9,29 +9,38 @@ class Router {
     this.sections.cover = document.querySelector('.section-cover');
     this.sections.portfolio = document.querySelector('.section-portfolio');
     this.sections.recentPosts = document.querySelector('.section-recent-posts');
-    this.sections.contact = document.querySelector('.section-contact');  
+    this.sections.contact = document.querySelector('.section-contact');
 
+    this.page = null;
 
     this.updateCallbacks = []    
 
     this.links = document.querySelectorAll('.router-link');
     this.links.forEach((link) =>{
-      link.addEventListener('click', (e)=>{        
+      link.addEventListener('click', (e)=>{          
         this.update(link.hash);
       });
     });
-
+    
     this.update(window.location.hash);
   }
 
+  getSections(){
+    return this.sections;
+  }
+
   update(hash){
+   
+    if(hash === undefined) hash = window.location.hash;
        
     const indexPaths = ['', '#', "#portfolio", '#contato'];    
     if(indexPaths.indexOf(hash) > -1){
       this.index();
     }
-
-    this.updateCallbacks.forEach(callback => callback(hash));
+  
+    this.updateCallbacks.forEach(callback => {      
+      callback(hash);
+    });
   }
 
   onUpdate(callback){
@@ -46,6 +55,8 @@ class Router {
 
   index(){
     
+    if(this.page === 'index'){ return; }
+
     this.hideAll();
     
     this.sections.cover.classList.remove('hidden');
@@ -57,6 +68,8 @@ class Router {
     Blog.renderIndexCards();
 
     this.sections.contact.classList.remove('hidden');
+
+    this.page = 'index';
   }
 
 }
