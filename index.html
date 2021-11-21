@@ -34,10 +34,10 @@
     </div>    
     <div class="links">
       <ul class="navlinks">
-        <li><a href="#">HOME</a></li>     
-        <li><a href="#portfolio">PORTFÓLIO</a></li>
-        <li><a href="#contato">CONTATO</a></li>
-        <li><a href="/">BLOG</a></li>
+        <li><a class='router-link' href="#">HOME</a></li>     
+        <li><a class='router-link' href="#portfolio">PORTFÓLIO</a></li>
+        <li><a class='router-link' href="#contato">CONTATO</a></li>
+        <li><a class='router-link' href="/">BLOG</a></li>
       </ul>
       <ul class="social-links">
         <li><a href="https://stackoverflow.com/users/16134139/vander-santos" target="_blank" rel="noopener noreferrer">
@@ -61,8 +61,10 @@
 
   <!-- MAIN -->
   <main>
+
+  <noscript>Ops... Esse site precisa do JavaScript para funcionar...</noscript>
   <!--SECTION COVER -->
-  <section class="section-cover">
+  <section class="section-cover hidden">
     <div class="overlay"></div>
     <div class="background-image"></div>
     <div class="content">
@@ -71,14 +73,14 @@
         <p class='presentation'>Olá, meu nome é Vander. Eu sou desenvolvedor web full stack. Trabalho com as seguintes linguagens e tecnologias: JavaScript, HTML, SCSS, Java, Python, Ruby, PHP e outras. Resido em São Paulo/SP.</p>
       </header>
       <div class="cta-container">
-        <a href="/" class="cta-primary">PORTFÓLIO</a>
+        <a class='router-link cta-primary' href="#portfolio">PORTFÓLIO</a>
         <a href="/assets/files/currículo.pdf" class="cta-secondary" download>DOWNLOAD CV</a>        
-      </div>      
+      </div>
     </div>
   </section>
 
   <!-- SECTION PORTFOLIO -->
-  <section id="portfolio" class="section section-portfolio">
+  <section id="portfolio" class="section section-portfolio hidden">
     <header class="section-header">
       <h2 class='title'>PORTFÓLIO</h2>
       <div class="separator">
@@ -94,7 +96,7 @@
     <div class="cards-container">
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -105,7 +107,7 @@
       </article>
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -116,7 +118,7 @@
       </article>
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -127,7 +129,7 @@
       </article>   
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -138,7 +140,7 @@
       </article>   
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -149,7 +151,7 @@
       </article>
 
       <article class='card hidden'>         
-        <a class='project-link' href="/">
+        <a class='router-link project-link' href="/">
         <div class="img-container">
           <img src="/" alt="#">
         </div>
@@ -173,7 +175,7 @@
   </section>
 
   <!--SECTION RECENT POSTS -->
-  <section class="section section-recent-posts">
+  <section class="section section-recent-posts hidden">
 
     <header class="section-header">
       <h2 class='title'>ARTIGOS RECENTES</h2>
@@ -190,13 +192,13 @@
     <div class="cards-container">
       <article class="card-post hidden">
         <div class="image-container">
-          <a href="#">
+          <a class='router-link' href="#">
             <img src="#" alt="thumbnail">
           </a>          
         </div>
         <div class="content">
           <header>    
-            <a href="#">
+            <a class='router-link' href="#">
               <h3 class="title"></h3>
             </a>
           <div class="data">
@@ -224,14 +226,14 @@
         <div class="summary-container">
           <div class="text"></div>
         </div>
-          <a class='read-more' href="#">LEIA MAIS</a>
+          <a class='router-link read-more' href="#">LEIA MAIS</a>
         </div>
       </article>
 
       <article class="card-post reverse hidden">        
         <div class="content">
           <header>    
-            <a href="#">
+            <a class='router-link' href="#">
               <h3 class="title"></h3>
             </a>
           <div class="data">
@@ -259,10 +261,10 @@
         <div class="summary-container">
           <div class="text"></div>
         </div>
-          <a class='read-more' href="#">LEIA MAIS</a>
+          <a class='router-link read-more' href="#">LEIA MAIS</a>
         </div>
         <div class="image-container">
-          <a href="#">
+          <a class='router-link' href="#">
             <img src="/assets/images/960/pillars-of-creation.jpg" alt="#">
           </a>          
         </div>
@@ -270,13 +272,13 @@
 
       <article class="card-post hidden">
         <div class="image-container">
-          <a href="#">
+          <a class='router-link' href="#">
             <img src="#" alt="#">
           </a>          
         </div>
         <div class="content">
           <header>    
-            <a href="#">
+            <a class='router-link' href="#">
               <h3 class="title"></h3>
             </a>
           <div class="data">
@@ -304,16 +306,14 @@
         <div class="summary-container">
           <div class="text"></div>
         </div>
-          <a class='read-more' href="#">LEIA MAIS</a>
+          <a class='router-link read-more' href="#">LEIA MAIS</a>
         </div>
       </article>
     </div>
   </section>
-
-
   
   <!-- CONTATO -->
-  <section id="contato" class="section section-contact">
+  <section id="contato" class="section section-contact hidden">
     
     <header class="section-header">
       <h2 class='title'>CONTATO</h2>
@@ -417,8 +417,6 @@
       <path id="Icon_material-laptop" data-name="Icon material-laptop" d="M18.75,19.125a1.881,1.881,0,0,0,1.875-1.875V7.875A1.881,1.881,0,0,0,18.75,6h-15A1.881,1.881,0,0,0,1.875,7.875V17.25A1.881,1.881,0,0,0,3.75,19.125H0V21H22.5V19.125Zm-15-11.25h15V17.25h-15Z" transform="translate(0 -6)" fill="#000000"/>
     </svg>    
   </template>  
-  <script type="module" src="/js/navbar.js"></script>
-  <script type="module" src="/js/portfolio.js"></script>
-  <script type="module" src="/js/blog.js"></script>
+  <script type="module" src="/js/navbar.js"></script> 
 </body>
 </html>

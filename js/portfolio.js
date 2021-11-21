@@ -4,44 +4,35 @@ import Pagination from "./pagination.js";
 class Portfolio {
 
   constructor(){
-
     this.callbacks = [];
     this.projects = null; 
     this.section = document.querySelector(".section-portfolio");
     this.container = this.section.querySelector('.cards-container');
     this.cards = this.container.querySelectorAll(".card");  
-    this.pagination = new Pagination(document.querySelector('.pagination'), page => this.update(page))
-
-    this.addListener(()=> this.update(1));    
-
-    this.fetchData();
+    this.pagination = new Pagination(document.querySelector('.pagination'), page =>{
+      this.renderIndexCards(page);
+    });      
+    this.getProjects();
   }
 
-  async fetchData(){
-    
-    const response = await fetch('/assets/portfolio/portfolio.json');
-    const data = await response.json();
-    this.projects = data.projects;
-    this.callbacks.forEach(callback => callback(this.projects));        
-  }
-
-  addListener(callback){
-    if (this.projects){
-      callback(this.projects);
-    }
-    else {
-      this.callbacks.push(callback);   
-    } 
+  async getProjects(){
+    if(this.projects == null){
+      const response = await fetch('/assets/portfolio/portfolio.json');
+      const data = await response.json();
+      this.projects = data.projects;
+    }   
+    return this.projects;       
   }
 
 
-  update(page){    
-    this.updateCards(this.projects, page);
-    this.pagination.update(this.projects.length, page);
+  async renderIndexCards(page){
+    const projects = await this.getProjects();
+    this.updateCards(projects, page);
+    this.pagination.update(projects.length, page);
   }
 
 
-  updateCards(projects, page){    
+  updateCards(projects, page){
    
     const start = (page - 1) * 6;    
 
@@ -81,5 +72,4 @@ class Portfolio {
 }
 
 
-const instance = new Portfolio();
-export default instance;
+export default new Portfolio();

@@ -1,22 +1,35 @@
+import Router from './router.js';
 
-const navbar = document.querySelector(".navbar");
+class Navbar {
+  constructor(){
 
-const closeBtn = navbar.querySelector('.close-btn');
-const menuBtn = document.querySelector('.sidebar-bar .menu-btn');
-const overlay = document.querySelector('.navbar-overlay');
+    this.navbar = document.querySelector(".navbar");
+    this.closeBtn = this.navbar.querySelector('.close-btn');
+    this.menuBtn = document.querySelector('.sidebar-bar .menu-btn');
+    this.overlay = document.querySelector('.navbar-overlay');
+    this.overlay.addEventListener('click', ()=> this.close());
+    this.closeBtn.addEventListener('click', ()=> this.close());
+    this.menuBtn.addEventListener('click', ()=> this.open());
 
-const closeSidebar = ()=>{
-  [navbar, menuBtn, overlay].forEach(e => e.classList.add('close'));  
+
+
+  }
+
+  setActiveLink(hash){
+    
+
+  }
+
+  open(){
+    [this.navbar, this.menuBtn, this.overlay].forEach(e => e.classList.remove('close'));  
+  }
+
+  close(){
+    [this.navbar, this.menuBtn, this.overlay].forEach(e => e.classList.add('close')); 
+  }
+
+
 }
 
-const openSidebar = ()=>{
-  [navbar, menuBtn, overlay].forEach(e => e.classList.remove('close'));  
-}
 
-
-overlay.addEventListener('click', closeSidebar);
-closeBtn.addEventListener('click', closeSidebar);
-menuBtn.addEventListener('click', openSidebar);
-
-
-export default { open: openSidebar, close: closeSidebar };
+new Navbar();

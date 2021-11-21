@@ -1,40 +1,28 @@
 
-
 class Blog {
 
-  constructor(){
-
-    this.callbacks = [];
+  constructor(){    
     this.posts = null; 
     this.section = document.querySelector(".section-recent-posts");
     this.container = this.section.querySelector('.cards-container');
-    this.cards = this.container.querySelectorAll(".card-post");      
-
-    this.addListener((posts)=> this.updateCards(posts));    
-
-    this.fetch();
+    this.cards = this.container.querySelectorAll(".card-post");          
+    this.getPosts();
   }
 
-  async fetch(){
+  async getPosts(){
     
-    const response = await fetch('/assets/blog/blog.json');
-    const data = await response.json();
-    this.posts = data.posts;
-    this.callbacks.forEach(callback => callback(this.posts));        
-
+    if(this.posts == null){
+      const response = await fetch('/assets/blog/blog.json');
+      const data = await response.json();
+      this.posts = data.posts;
+    }    
+    return this.posts;
   }
-
-  addListener(callback){
-    if (this.posts){
-      callback(this.posts);
-    }
-    else {
-      this.callbacks.push(callback);   
-    } 
-  }
-
-  async updateCards(posts){
+  
+  async renderIndexCards(){
     
+    const posts = await this.getPosts();
+
     this.cards.forEach( async (card, index) => {
 
       if(index >= posts.length){ return; }
@@ -132,5 +120,4 @@ class Blog {
 }
 
 
-const instance = new Blog();
-export default instance;
+export default new Blog();
