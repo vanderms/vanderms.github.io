@@ -12,8 +12,8 @@ def convert(sub):
     for path in paths:
         image = Image.open(src + path)
         
-        if image.size[0] > 1920:
-            width = 1920
+        if image.size[0] > int(sub):
+            width = int(sub)
             height = round((width * image.size[1]) / image.size[0])
             image = image.resize((width, height), Image.ANTIALIAS)
         

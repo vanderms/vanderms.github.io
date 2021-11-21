@@ -10,12 +10,11 @@
     
   .contact-container{
     @include container;    
-    display: grid;       
-    gap: 40px;
-    grid-template-columns: 65% 35%;
-    width: 100%;    
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
     @include media($tablet){
-      grid-template-columns: 100%;
+      justify-content: center;
     }
   }
 
@@ -24,36 +23,31 @@
     font-weight: 300;   
   }
 
-  .contact-data{
+  .contact-image {
     padding-top: 18px;
+    height: 280px;
+    width: 45%;
+    overflow: hidden;   
+    background-image: url(assets/images/960/mail.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+   
     @include media($tablet){
       display: none;
     }
-   .item{
-     @include flex(row, flex-start, center);
-     height: 22px;
-     &:not(:first-child){margin-top: 20px;}
-     svg {
-       height: 14px;
-       width: auto;
-       margin-right: 10px;       
-     }
-     span{
-       line-height: 22px;
-       font-weight: 300;
-     }
-   }
-
   }
 
 
-  .contact-form{    
+  .contact-form {    
     display: grid;
-    grid-template-columns: 50% 50%;  
-    gap: 16px;  
-    width: 100%;
-        
-    padding-right: 80px;
+    grid-template-columns: calc(50% - 8px) calc(50% - 8px);  
+    gap: 16px;
+    width: 46%;
+    height: 280px;
+    justify-content: space-between;      
+   
     border-radius: 5px;       
     z-index: 3;    
     @include media($tablet){
@@ -68,7 +62,7 @@
     }   
   }
  
-  .item{
+  .item {
     @include flex(column, flex-start, flex-start);     
     &.message{
       grid-column: 1 / span 2;
