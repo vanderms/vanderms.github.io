@@ -1,7 +1,7 @@
 @import 'utilities.scss';
 
 
-.section-recent-posts{
+.section-blog{
   @include container;
   &.section{
     >*:not(:first-child){margin-top: 70px; }

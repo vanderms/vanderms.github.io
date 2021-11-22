@@ -3,7 +3,7 @@ class Blog {
 
   constructor(){    
     this.posts = null; 
-    this.section = document.querySelector(".section-recent-posts");
+    this.section = document.querySelector(".section-blog");
     this.container = this.section.querySelector('.cards-container');
     this.template = this.container.querySelector(".template-card-post");            
     this.getPosts();

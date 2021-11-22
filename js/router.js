@@ -5,13 +5,13 @@ class Router {
 
   constructor(){
 
-    this.sections = {}
-    this.sections.cover = document.querySelector('.section-cover');
-    this.sections.portfolio = document.querySelector('.section-portfolio');
-    this.sections.recentPosts = document.querySelector('.section-recent-posts');
-    this.sections.contact = document.querySelector('.section-contact');
+    this._sections = {}
+    this._sections.cover = document.querySelector('.section-cover');
+    this._sections.portfolio = document.querySelector('.section-portfolio');
+    this._sections.blog = document.querySelector('.section-blog');
+    this._sections.contact = document.querySelector('.section-contact');
 
-    this.page = null;
+    this._page = null;
 
     this.updateCallbacks = []    
 
@@ -25,16 +25,20 @@ class Router {
     this.update(window.location.hash);
   }
 
-  getSections(){
-    return this.sections;
+  get sections(){
+    return this._sections;
+  }
+
+  get page(){
+    return this._page;
   }
 
   update(hash){
-    
+
    
     if(hash === undefined) hash = window.location.hash;
        
-    const indexPaths = ['', '#', "#portfolio", '#contato'];    
+    const indexPaths = ['', '#', "#portfolio", '#contato', "#artigos"];    
     if(indexPaths.indexOf(hash) > -1){
       this.index();
     }
@@ -49,30 +53,29 @@ class Router {
   }
 
   hideAll(){
-    for(let section in this.sections){
-      this.sections[section].classList.add('hidden');
+    for(let section in this._sections){
+      this._sections[section].classList.add('hidden');
     }
   }
 
   index(){
     
-    if(this.page === 'index'){ return; }
+    if(this._page === 'index'){ return; }
 
     this.hideAll();
     
-    this.sections.cover.classList.remove('hidden');
+    this._sections.cover.classList.remove('hidden');
     
-    this.sections.portfolio.classList.remove('hidden');    
+    this._sections.portfolio.classList.remove('hidden');    
     Portfolio.renderIndexCards(1);
     
-    this.sections.recentPosts.classList.remove('hidden');    
+    this._sections.blog.classList.remove('hidden');    
     Blog.renderIndexCards();
 
-    this.sections.contact.classList.remove('hidden');
+    this._sections.contact.classList.remove('hidden');
 
-    this.page = 'index';
+    this._page = 'index';
   }
-
 }
 
 export default new Router();
