@@ -18,6 +18,11 @@ class Navbar {
       blog: this.navbar.querySelector('.blog-link')
     }
 
+    for(let link in this.links){
+      this.links[link].addEventListener('click', ()=>{this.close()});
+
+    }
+
     Router.onUpdate((hash)=>this.setActiveLink(hash));
     this.setActiveLink(window.location.hash); 
 
@@ -43,6 +48,8 @@ class Navbar {
       this.links[link].classList.remove('active');
     }    
   }
+
+
 
   open(){
     [this.navbar, this.menuBtn, this.overlay].forEach(e => e.classList.remove('close'));  

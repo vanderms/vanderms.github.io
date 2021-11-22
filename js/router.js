@@ -30,6 +30,7 @@ class Router {
   }
 
   update(hash){
+    
    
     if(hash === undefined) hash = window.location.hash;
        

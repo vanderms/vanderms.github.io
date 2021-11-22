@@ -5,12 +5,12 @@ class Blog {
     this.posts = null; 
     this.section = document.querySelector(".section-recent-posts");
     this.container = this.section.querySelector('.cards-container');
-    this.cards = this.container.querySelectorAll(".card-post");          
+    this.template = this.container.querySelector(".template-card-post");            
     this.getPosts();
   }
 
   async getPosts(){
-    
+
     if(this.posts == null){
       const response = await fetch('/assets/blog/blog.json');
       const data = await response.json();
@@ -22,15 +22,17 @@ class Blog {
   async renderIndexCards(){
     
     const posts = await this.getPosts();
+    this.container.innerHTML = '';
 
-    this.cards.forEach( async (card, index) => {
+    for(let i = 0; i < 3 && i < posts.length; i++){
+    
+      this.container.appendChild(this.template.content.cloneNode(true))
+      const card = this.container.querySelector('article:last-child');
+      if(i % 2 == 1){
+        card.classList.add('reverse');
+      }
 
-      if(index >= posts.length){ return; }
-
-      card.classList.add('not-visible');
-      card.classList.remove("hidden");
-
-      const post = posts[index];
+      const post = posts[i];
       
       const linkPath = `/#/posts/${post.id}/`;
 
@@ -65,12 +67,12 @@ class Blog {
         const summary = card.querySelector('.summary-container .text');
         Blog.setEllipis(summary, text);
       }
-      else{
+      else {
         console.log(`not found ${post.id}`);
       }
 
       card.classList.remove("not-visible");
-    });
+    }
   }
 
 

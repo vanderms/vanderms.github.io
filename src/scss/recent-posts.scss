@@ -14,13 +14,16 @@
 
     .card-post{
       @include flex(row, space-between, center);
+      &.reverse{
+        flex-direction: row-reverse;
+      }
       @include size(960px,  240px); 
       @include media($tablet){
         @include size(480px, unset);        
-        flex-direction: column;       
+        flex-direction: column;  
         &.reverse{
-          flex-direction: column-reverse;
-        }
+          flex-direction: column;
+        }  
       }
       @include media($mobile){        
         width: 100%;
