@@ -15,6 +15,54 @@
       "date" : "12/5/2020",
       "author" : "vanderms",       
       "tags": ["nebulosas", "astronomia"]
-    }
+    },
+    {
+    "id": "pillars-of-creation",
+    "title": "Pilares da Criação 3",
+    "thumbnail" : "pillars-of-creation.jpg",   
+    "date" : "12/5/2020",
+    "author" : "vanderms",     
+    "tags": ["ciência", "astronomia"]
+    },
+    {
+      "id": "pillars-of-creation-2",
+      "title": "Pilares da Criação 4",
+      "thumbnail" : "pillars-of-creation.jpg",   
+      "date" : "12/5/2020",
+      "author" : "vanderms",       
+      "tags": ["nebulosas", "astronomia"]
+    },
+    {
+      "id": "pillars-of-creation",
+      "title": "Pilares da Criação 5",
+      "thumbnail" : "pillars-of-creation.jpg",   
+      "date" : "12/5/2020",
+      "author" : "vanderms",     
+      "tags": ["ciência", "astronomia"]
+      },
+      {
+        "id": "pillars-of-creation-2",
+        "title": "Pilares da Criação 6",
+        "thumbnail" : "pillars-of-creation.jpg",   
+        "date" : "12/5/2020",
+        "author" : "vanderms",       
+        "tags": ["nebulosas", "astronomia"]
+      },
+      {
+        "id": "pillars-of-creation",
+        "title": "Pilares da Criação 7",
+        "thumbnail" : "pillars-of-creation.jpg",   
+        "date" : "12/5/2020",
+        "author" : "vanderms",     
+        "tags": ["ciência", "astronomia"]
+        },
+        {
+          "id": "pillars-of-creation-2",
+          "title": "Pilares da Criação 8",
+          "thumbnail" : "pillars-of-creation.jpg",   
+          "date" : "12/5/2020",
+          "author" : "vanderms",       
+          "tags": ["nebulosas", "astronomia"]
+        }
   ]
 }

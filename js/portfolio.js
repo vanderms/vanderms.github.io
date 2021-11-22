@@ -9,7 +9,7 @@ class Portfolio {
     this.section = document.querySelector(".section-portfolio");
     this.container = this.section.querySelector('.cards-container');
     this.cards = this.container.querySelectorAll(".card");  
-    this.pagination = new Pagination(document.querySelector('.pagination'), page =>{
+    this.pagination = new Pagination(this.section.querySelector('.component-pagination'), 6, page =>{
       this.renderIndexCards(page);
     });      
     this.getProjects();

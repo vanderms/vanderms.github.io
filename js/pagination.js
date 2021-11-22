@@ -1,8 +1,10 @@
 class Pagination {
   
-  constructor(root, updateCallback){
+  constructor(root, itemsPerPage, updateCallback){
     this.root = root;
-    this.buttons = this.root.querySelectorAll('button');    
+    this.itemsPerPage = itemsPerPage; 
+    this.buttons = this.root.querySelectorAll('button');   
+    
     
     this.buttons.forEach(button =>{
       button.addEventListener('click', ()=>{
@@ -15,7 +17,7 @@ class Pagination {
 
   update(size, page){    
    
-    const totalPages = Math.ceil(size / 6);   
+    const totalPages = Math.ceil(size / this.itemsPerPage);   
     
     if(totalPages == 1){
       this.buttons.forEach(btn => btn.classList.add('hidden'));

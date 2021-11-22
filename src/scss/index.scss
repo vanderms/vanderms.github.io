@@ -38,11 +38,11 @@ main{
     @include size(40px, 40px);
     border-radius: 3px;
     background-color: black;
-    color: $primary-light;
+    color: white;
     line-height: 40px;
     text-align: center;
     font-size: 20px;
-    border: 1px solid gainsboro;
+    border: 1px solid white;
   }
 }
 
@@ -115,4 +115,30 @@ footer{
     font-weight: 300;
   }
 
+}
+
+
+.component-pagination{
+  @include flex(row, center, center);
+  margin-top: 40px;
+  button{
+    background-color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 2px;
+    @include size(28px, 28px);
+    //line-height: 28px;
+    color: black;
+    text-align: center;
+    font-size: 13px;
+    //font-weight: 300;
+    border: 1px solid #CCC;
+    &:not(:first-child){
+      margin-left: 5px;
+    }
+    &.active{
+      border: 1px solid black;
+    
+    }
+  }
 }

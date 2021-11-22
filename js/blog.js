@@ -1,3 +1,5 @@
+import Pagination from './pagination.js';
+
 
 class Blog {
 
@@ -5,7 +7,11 @@ class Blog {
     this.posts = null; 
     this.section = document.querySelector(".section-blog");
     this.container = this.section.querySelector('.cards-container');
-    this.template = this.container.querySelector(".template-card-post");            
+    this.template = this.container.querySelector(".template-card-post"); 
+    this.cards = this.container.querySelectorAll('article');
+    this.pagination = new Pagination(this.section.querySelector('.component-pagination'), 2, page =>{
+      this.renderIndexCards(page);
+    });            
     this.getPosts();
   }
 
@@ -19,20 +25,30 @@ class Blog {
     return this.posts;
   }
   
-  async renderIndexCards(){
+  async renderIndexCards(page){    
     
-    const posts = await this.getPosts();
-    this.container.innerHTML = '';
+    const posts = await this.getPosts();  
+    
+    const start = (page - 1) * 2;            
+    
+    for(let i = start; i < (start + 2); i++){ 
 
-    for(let i = 0; i < 3 && i < posts.length; i++){
-    
-      this.container.appendChild(this.template.content.cloneNode(true))
-      const card = this.container.querySelector('article:last-child');
+      const card = this.cards[i % 2];    
+      
+      if(i >= posts.length){
+        card.classList.add('hidden');  
+      }
+      card.classList.remove('hidden');
+      card.classList.add('not-visible');
+      
+      console.log('2');
       if(i % 2 == 1){
         card.classList.add('reverse');
       }
+      console.log('3');
 
       const post = posts[i];
+      console.log('4');
       
       const linkPath = `/#/posts/${post.id}/`;
 
@@ -71,8 +87,10 @@ class Blog {
         console.log(`not found ${post.id}`);
       }
 
-      card.classList.remove("not-visible");
+      card.classList.remove("not-visible");      
     }
+
+    this.pagination.update(posts.length, page);
   }
 
 

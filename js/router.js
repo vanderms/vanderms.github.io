@@ -70,7 +70,7 @@ class Router {
     Portfolio.renderIndexCards(1);
     
     this._sections.blog.classList.remove('hidden');    
-    Blog.renderIndexCards();
+    Blog.renderIndexCards(1);
 
     this._sections.contact.classList.remove('hidden');
 
