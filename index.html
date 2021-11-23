@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vanderms: programador e webdesigner</title>    
   <link rel="stylesheet" href="styles.css">  
+  <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
 </head>
 <body>
   <!-- NAVBAR COMPONENT::SIDEBAR BAR -->
@@ -324,7 +325,33 @@
   
     </div>
   </section>
-  </main>
+
+  <section class="section section-single-project hidden">
+    <article>    
+      <header>
+        <h2 class='title'></h2>
+      </header> 
+      <img src="#" alt="thumbnail" class="thumbnail">  
+      <div class="description"></div>
+      <div class="links-container">
+        <a class='see-live hidden' href="#" target='_blank' rel="noreferrer noopener">  
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+            <path id="Icon_metro-earth" data-name="Icon metro-earth" d="M10.071,1.928a7.5,7.5,0,1,0,7.5,7.5,7.5,7.5,0,0,0-7.5-7.5Zm0,14.063a6.54,6.54,0,0,1-2.6-.534l3.415-3.842a.469.469,0,0,0,.118-.311V9.9a.469.469,0,0,0-.469-.469c-1.655,0-3.4-1.721-3.419-1.738a.469.469,0,0,0-.331-.137H4.914a.469.469,0,0,0-.469.469v2.812a.469.469,0,0,0,.259.419l1.616.808v2.752a6.566,6.566,0,0,1-2.181-8.2H5.852a.469.469,0,0,0,.331-.137L8.058,4.6A.469.469,0,0,0,8.2,4.272V3.138a6.581,6.581,0,0,1,4.75.39c-.061.051-.12.1-.176.162a2.813,2.813,0,0,0,1.987,4.8q.07,0,.139,0a11.008,11.008,0,0,1-.123,5.454.467.467,0,0,0-.012.077,6.542,6.542,0,0,1-4.69,1.973Z" transform="translate(-2.571 -1.928)" fill="#fff"/>
+          </svg>                    
+          <span class="text">VEJA AO VIVO</span>
+        </a>
+        <a href="#" class="see-source-code hidden" target='_blank' rel="noreferrer noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+            <path id="Icon_ionic-logo-github" data-name="Icon ionic-logo-github" d="M9.75,2.25a7.6,7.6,0,0,0-7.5,7.691,7.676,7.676,0,0,0,5.129,7.3.588.588,0,0,0,.127.013.363.363,0,0,0,.385-.382c0-.184-.007-.666-.01-1.309a3.428,3.428,0,0,1-.757.09,1.742,1.742,0,0,1-1.771-1.122A2.031,2.031,0,0,0,4.52,13.4c-.653-.459,0-.472.047-.472h0a1.612,1.612,0,0,1,1.148.8,1.472,1.472,0,0,0,1.326.84,2.108,2.108,0,0,0,.857-.2,1.661,1.661,0,0,1,.475-1.028c-1.664-.194-3.415-.854-3.415-3.8a3.01,3.01,0,0,1,.77-2.063,2.831,2.831,0,0,1,.074-2.036.624.624,0,0,1,.167-.017,3.566,3.566,0,0,1,1.9.807,6.971,6.971,0,0,1,3.757,0,3.566,3.566,0,0,1,1.9-.807.624.624,0,0,1,.167.017,2.831,2.831,0,0,1,.074,2.036,3.022,3.022,0,0,1,.77,2.063c0,2.953-1.754,3.6-3.425,3.794a1.865,1.865,0,0,1,.509,1.423c0,1.028-.01,1.858-.01,2.109a.361.361,0,0,0,.382.385.648.648,0,0,0,.134-.013,7.675,7.675,0,0,0,5.129-7.3A7.6,7.6,0,0,0,9.75,2.25Z" transform="translate(-2.25 -2.25)"/>
+          </svg>          
+          <span class="text">VEJA CÓDIGO FONTE</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+</main>
+
 
   <footer>
     <div class="logo-container">
@@ -391,3 +418,6 @@
   <script type="module" src="/js/navbar.js"></script> 
 </body>
 </html>
+
+
+

@@ -10,6 +10,7 @@ class Router {
     this._sections.portfolio = document.querySelector('.section-portfolio');
     this._sections.blog = document.querySelector('.section-blog');
     this._sections.contact = document.querySelector('.section-contact');
+    this._sections.singleProject = document.querySelector('.section-single-project');
 
     this._page = null;
 
@@ -37,32 +38,46 @@ class Router {
 
    
     if(hash === undefined) hash = window.location.hash;
+    const portfolio = '#/portfolio/';
        
     const indexPaths = ['', '#', "#portfolio", '#contato', "#artigos"];    
     if(indexPaths.indexOf(hash) > -1){
       this.index();
+    }
+    else if(hash.indexOf(portfolio) == 0){
+      const id = hash.slice(portfolio.length, -1);
+      this.singleProject(id);
     }
   
     this.updateCallbacks.forEach(callback => {      
       callback(hash);
     });
   }
+  
+  singleProject(id){
+    this.hideAllAndScrollToTop();
+    Portfolio.renderSingleProject(id);
+    this._sections.singleProject.classList.remove('hidden');
+    this._page = 'single-project';
+  }
+
 
   onUpdate(callback){
     this.updateCallbacks.push(callback);
   }
 
-  hideAll(){
+  hideAllAndScrollToTop(){
     for(let section in this._sections){
       this._sections[section].classList.add('hidden');
     }
+    window.scrollTo(0, 0);
   }
 
   index(){
     
     if(this._page === 'index'){ return; }
 
-    this.hideAll();
+    this.hideAllAndScrollToTop();
     
     this._sections.cover.classList.remove('hidden');
     

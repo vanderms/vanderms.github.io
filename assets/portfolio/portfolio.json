@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 1",
+      "title": "Aroma e Tempeiro",
       "thumbnail" : "aroma-e-tempeiro.jpg",
       "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
       "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",

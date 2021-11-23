@@ -20,7 +20,7 @@ class Portfolio {
       const response = await fetch('/assets/portfolio/portfolio.json');
       const data = await response.json();
       this.projects = data.projects;
-    }   
+    }      
     return this.projects;       
   }
 
@@ -29,6 +29,49 @@ class Portfolio {
     const projects = await this.getProjects();
     this.updateCards(projects, page);
     this.pagination.update(projects.length, page);
+  }
+
+
+  async renderSingleProject(id){
+
+    const section = document.querySelector('.section-single-project');
+    const projects = await this.getProjects();
+    
+    const project = projects.find(project => project.id === id);
+
+    const title = section.querySelector('.title');
+    title.textContent = project.title;
+
+    const thumbnail = section.querySelector('.thumbnail');
+    thumbnail.src = `/assets/images/960/${project.thumbnail}`;
+
+    const live = section.querySelector('.see-live');
+    if(project.live){    
+      live.classList.remove('hidden');
+      live.href = project.live;
+    }
+    else {
+      live.classList.add('hidden');
+    }
+
+    const sourceCode = section.querySelector('.see-source-code');
+    if(project.github){
+      sourceCode.classList.remove('hidden');
+      sourceCode.href = project.github;
+    }
+    else{
+      sourceCode.classList.add('hidden');
+    }
+    
+    const response = await fetch(`/assets/portfolio/${project.id}.md`);
+
+    if(response.ok){
+      const description = section.querySelector('.description');
+      const text = await response.text();       
+      const converter = new showdown.Converter();    
+      const html  = converter.makeHtml(text);
+      description.innerHTML = html;      
+    }
   }
 
 
@@ -47,7 +90,7 @@ class Portfolio {
 
       const icons = card.querySelector('.icons-container');
       card.querySelector("img").src = `/assets/images/960/${project.thumbnail}`;
-      card.querySelector("a").href = `?project=${project.id}`;
+      card.querySelector("a").href = `/#/portfolio/${project.id}/`;
       card.querySelector(".title").textContent = project.title;
       let hasIcon = false;
       icons.innerHTML = "";

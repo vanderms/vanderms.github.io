@@ -46,7 +46,7 @@ class Navbar {
     if(hash === '' || hash === '#'){
       this.links.home.classList.add('active'); 
     }
-    else if(hash === "#portfolio"){
+    else if(hash === "#portfolio" || hash.indexOf('#/portfolio/') == 0){
       this.links.portfolio.classList.add('active'); 
     }
     else if(hash === '#contato'){

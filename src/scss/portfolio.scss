@@ -4,8 +4,6 @@
 .section-portfolio{
   @include container;
 
-  
-
 
   .cards-container {
     display: grid;
@@ -65,4 +63,64 @@
       }
     }
   }
+}
+
+.section-single-project{
+  @include container;
+  max-width: 960px;
+  margin: 0px auto;
+  margin-bottom: 120px;
+
+  .thumbnail{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  header{
+    margin-bottom: 20px;
+    h2{
+      text-transform: uppercase;      
+    }
+  }
+
+  .links-container{
+   
+    @include flex(row, flex-start, center);
+    @include media($mobile){
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      a:first-child{
+        margin-right: 0px;
+      } 
+      a{
+        margin-top: 20px;
+      }
+
+    }
+    a{
+      @include flex(row, flex-start, center);
+      font-size: 14px;      
+      >*:first-child{
+        margin-right: 12px;
+      }
+    }
+    a:first-child{
+      margin-right: 20px;
+    }    
+    .see-live{
+      @include cta-primary;
+      background-color: black;
+    }
+
+    .see-source-code{
+      @include cta-secondary;
+      border: 1px solid black;
+      color: black;
+      
+      
+    }
+  }
+
+
 }

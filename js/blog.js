@@ -1,6 +1,8 @@
 import Pagination from './pagination.js';
 
 
+    
+
 class Blog {
 
   constructor(){    
@@ -41,14 +43,13 @@ class Blog {
       card.classList.remove('hidden');
       card.classList.add('not-visible');
       
-      console.log('2');
+     
       if(i % 2 == 1){
         card.classList.add('reverse');
       }
-      console.log('3');
-
+      
       const post = posts[i];
-      console.log('4');
+     
       
       const linkPath = `/#/posts/${post.id}/`;
 
