@@ -89,11 +89,15 @@ class Portfolio {
         return;
       }
       
-      const project = projects[start + index];      
+      const project = projects[start + index];
 
       const icons = card.querySelector('.icons-container');
       card.querySelector("img").src = `/assets/images/960/${project.thumbnail}`;
-      card.querySelector("a").href = `/#/portfolio/${project.id}/`;
+      
+      card.querySelectorAll("a").forEach(anchor =>{
+        anchor.href = `/#/portfolio/${project.id}/`;
+      })
+
       card.querySelector(".title").textContent = project.title;
       let hasIcon = false;
       icons.innerHTML = "";

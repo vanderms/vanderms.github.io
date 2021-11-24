@@ -102,5 +102,114 @@
       resize: none;
       height: 120px;
     }
+
+    
+  }
+
+  .overlay-spinner{
+    @include flex(row, center, center);      
+    @include size(100%, 100vh);
+    position: fixed;    
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.85);
+    
+    svg {
+      animation: rotation 2s infinite linear;
+    }
+  }
+
+  .modal{
+    @include flex(column, flex-start, center);      
+    @include size(100%, 100vh);
+    position: fixed;    
+    top: 0px;
+    left: 0px;
+    z-index: 1001;    
+
+    .overlay{
+      @include size(100%, 100vh);
+      position: fixed;    
+      top: 0px;
+      left: 0px;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.85);      
+    }
+    
+    .message {      
+      @include flex(row, center, center);
+      position: relative;
+      z-index: 1001;
+      width: 480px;      
+      min-height: 220px;
+      padding: 20px;          
+      position: relative;
+      border-radius: 5px;
+      margin-top: 80px;
+
+      &.success{
+        background-color: $primary-dark;
+      }
+
+      &.danger{
+        background-color: #8c0d26;
+      }
+
+
+      @include media($mobile){
+        width: 90%;
+      }
+
+      .text{
+        color: white;
+        line-height: 1.6;
+      }
+
+      .close-btn{
+        @include flex;
+        @include size(42px, 42px);  
+
+        position: absolute;
+        top: 0px;
+        right: 6px;    
+        padding: 2px;
+        border: none;
+        background-color: inherit;
+        cursor: pointer; 
+       
+        .drawning {
+          transform: rotate(45deg);
+          position: relative;
+          @include size(22px, 22px);
+          span:first-child{
+            position: absolute;
+            top: 10px;
+            border-top: 2px solid white;
+            width: 22px;
+            left: 0px;
+          }
+          span:last-child{
+            position: absolute;
+            height: 22px;
+            left: 10px;
+            border-left: 2px solid white;
+          }
+        }
+      }
+
+    }
+
+    
+    
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

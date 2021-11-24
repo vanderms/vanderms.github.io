@@ -24,8 +24,8 @@ class Router {
       });
     });
 
-    window.addEventListener('popstate', ()=>{     
-       this.update(window.location.hash);
+    window.addEventListener('popstate', ()=>{         
+      this.update(window.location.hash);
      });
     
     this.update(window.location.hash);
@@ -62,19 +62,20 @@ class Router {
     this.updateCallbacks.forEach(callback => {      
       callback(hash);
     });
-
    
   }
   
   singleProject(id){
-    this.hideAllAndScrollToTop();
+    this.hideAll();
+    window.scrollTo(0, 0);
     Portfolio.renderSingleProject(id);
     this._sections.singleProject.classList.remove('hidden');
     this._page = 'single-project';
   }
 
   singlePost(id){
-    this.hideAllAndScrollToTop();
+    this.hideAll();
+    window.scrollTo(0, 0);
     Blog.renderSinglePost(id);
     this._sections.singlePost.classList.remove('hidden');
     this._page = 'single-project';
@@ -85,18 +86,17 @@ class Router {
     this.updateCallbacks.push(callback);
   }
 
-  hideAllAndScrollToTop(){
+  hideAll(){
     for(let section in this._sections){
       this._sections[section].classList.add('hidden');
-    }
-    window.scrollTo(0, 0);
+    }   
   }
 
   index(){
     
     if(this._page === 'index'){ return; }
 
-    this.hideAllAndScrollToTop();
+    this.hideAll();
     
     this._sections.cover.classList.remove('hidden');
     
