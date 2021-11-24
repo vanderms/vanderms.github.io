@@ -22,6 +22,13 @@
       "github": "https://github.com/vanderms/simple-react-blog",
       "live": "https://vanderms.github.io/simple-react-blog/#/",
       "categories": ["React", "React-Router"]
+    },
+    {
+      "id": "nova-data-structures",
+      "title": "Nova Data Structures",
+      "thumbnail" : "nova-data-structures.jpg",
+      "github": "https://github.com/vanderms/simple-react-blog",      
+      "categories": ["C"]
     }
   ]  
 }
