@@ -22,6 +22,11 @@ class Router {
         this.update(link.hash);
       });
     });
+
+    window.addEventListener('popstate', ()=>{  
+      console.log('Hi');    
+       this.update(window.location.hash);
+     });
     
     this.update(window.location.hash);
   }
@@ -53,9 +58,7 @@ class Router {
       callback(hash);
     });
 
-    window.addEventListener('popstate', ()=>{      
-      this.update(window.location.hash);
-    });
+   
   }
   
   singleProject(id){
