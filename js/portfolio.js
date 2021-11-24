@@ -19,7 +19,7 @@ class Portfolio {
     if(this.projects == null){
       const response = await fetch('/assets/portfolio/portfolio.json');
       const data = await response.json();
-      this.projects = data.projects;
+      this.projects = data.projects.reverse();       
     }      
     return this.projects;       
   }
@@ -98,7 +98,9 @@ class Portfolio {
       let hasIcon = false;
       icons.innerHTML = "";
 
-      project.categories.forEach((category) =>{
+
+      let category = project.categories[0];
+      if(category){
         category = category.trim().toLowerCase();
         const icon = document.querySelector(`.icon-${category}`);     
       
@@ -106,7 +108,8 @@ class Portfolio {
           icons.appendChild(icon.content.cloneNode(true));
           hasIcon = true;
         }
-      });
+      }
+
 
       if(!hasIcon){
         const default_icon = document.querySelector(`.icon-project-default`); 

@@ -6,15 +6,23 @@
       "thumbnail" : "aroma-e-tempeiro.jpg",
       "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
       "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["HTML", "JavaScript"]
+      "categories": ["HTML", "SCSS", "JavaScript"]
     },
     {
       "id": "python-jogo-da-forca",
       "title": "Jogo da Forca",
       "thumbnail" : "jogo-da-forca.jpg",
       "github": "https://github.com/vanderms/python-jogo-da-forca",      
-      "categories": ["Python"]
-    }    
+      "categories": ["Python", "CLI"]
+    },
+    {
+      "id": "react-simple-blog",
+      "title": "Simple Blog",
+      "thumbnail" : "react-simple-blog.jpg",
+      "github": "https://github.com/vanderms/simple-react-blog",
+      "live": "https://vanderms.github.io/simple-react-blog/#/",
+      "categories": ["React", "React-Router"]
+    }
   ]  
 }
 
