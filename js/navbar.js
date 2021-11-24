@@ -93,8 +93,7 @@ class Navbar {
       }
 
       if(link !== null && link !== this.currentLink){
-        this.setActiveLink(link);
-        window.history.pushState({}, '', link);
+        this.setActiveLink(link);        
       }
     }
   }

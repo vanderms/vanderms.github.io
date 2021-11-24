@@ -45,6 +45,9 @@ class Portfolio {
     const thumbnail = section.querySelector('.thumbnail');
     thumbnail.src = `/assets/images/960/${project.thumbnail}`;
 
+    const techs = section.querySelector('.techs');
+    techs.textContent = `Principais tecnologias utilizadas no projeto: ${project.categories.join(', ')}.`
+
     const live = section.querySelector('.see-live');
     if(project.live){    
       live.classList.remove('hidden');
@@ -96,7 +99,7 @@ class Portfolio {
       icons.innerHTML = "";
 
       project.categories.forEach((category) =>{
-        category = category.trim();
+        category = category.trim().toLowerCase();
         const icon = document.querySelector(`.icon-${category}`);     
       
         if (icon){       

@@ -52,6 +52,10 @@ class Router {
     this.updateCallbacks.forEach(callback => {      
       callback(hash);
     });
+
+    window.addEventListener('popstate', ()=>{      
+      this.update(window.location.hash);
+    });
   }
   
   singleProject(id){
