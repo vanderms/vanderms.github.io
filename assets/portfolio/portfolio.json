@@ -1,13 +1,20 @@
 {
   "projects": [
     {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["HTML", "SCSS", "JavaScript"]
+      "id": "nova-data-structures",
+      "title": "Nova Data Structures",
+      "thumbnail" : "nova-data-structures.jpg",
+      "github": "https://github.com/vanderms/simple-react-blog",      
+      "categories": ["C"]
     },
+    {
+      "id": "laundry-lavanderia",
+      "title": "Laundry Lavanderia",
+      "thumbnail" : "laundry.jpg",
+      "github": "https://github.com/vanderms/laundry-template",
+      "live": "https://vanderms.github.io/laundry-template/",
+      "categories": ["React", "SCSS"]
+    },    
     {
       "id": "python-jogo-da-forca",
       "title": "Jogo da Forca",
@@ -22,14 +29,16 @@
       "github": "https://github.com/vanderms/simple-react-blog",
       "live": "https://vanderms.github.io/simple-react-blog/#/",
       "categories": ["React", "React-Router"]
-    },
+    },   
     {
-      "id": "nova-data-structures",
-      "title": "Nova Data Structures",
-      "thumbnail" : "nova-data-structures.jpg",
-      "github": "https://github.com/vanderms/simple-react-blog",      
-      "categories": ["C"]
+      "id": "aroma-e-tempeiro-restaurante",
+      "title": "Aroma e Tempeiro",
+      "thumbnail" : "aroma-e-tempeiro.jpg",
+      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
+      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
+      "categories": ["HTML", "SCSS", "JavaScript"]
     }
+   
   ]  
 }
 
