@@ -1,6 +1,41 @@
 @import 'utilities.scss';
 
 
+@mixin data{
+  @include flex(row, flex-start, center);
+  @include media($mobile){
+    flex-direction: column;            
+    align-items: flex-start;
+  }
+
+  .item{
+    &:not(:first-child){margin-left: 16px;}
+    >*:not(:first-child){margin-left: 8px;}
+    @include media($mobile){
+      &:not(:first-child){
+        margin-top: 2px;
+        margin-left: 0px;
+      }
+    }
+
+    @include flex(row, flex-start, center);
+    .text{
+      font-size: 15px;
+      font-weight: 300;
+    }
+    svg{
+      height: 12px;
+      width: auto;
+    }
+  }
+}
+
+@mixin sep{
+  width: 100%;
+  border-top: 1px solid darkgrey;
+  margin: 8px 0px 8px 0px;
+}
+
 .section-blog{
   @include container;
   &.section{
@@ -79,38 +114,11 @@
         }        
 
         .sep{          
-          width: 100%;
-          border-top: 1px solid darkgrey;
-          margin: 8px 0px 8px 0px;
+          @include sep;
         }
         
-        .data{
-          @include flex(row, flex-start, center);
-          @include media($mobile){
-            flex-direction: column;            
-            align-items: flex-start;
-          }
-
-          .item{
-            &:not(:first-child){margin-left: 16px;}
-            >*:not(:first-child){margin-left: 8px;}
-            @include media($mobile){
-              &:not(:first-child){
-                margin-top: 2px;
-                margin-left: 0px;
-              }
-            }
-
-            @include flex(row, flex-start, center);
-            .text{
-              font-size: 15px;
-              font-weight: 300;
-            }
-            svg{
-              height: 12px;
-              width: auto;
-            }
-          }
+        .data {
+          @include data;
         }
 
         .summary-container{
@@ -137,6 +145,49 @@
         
       }
 
+    }
+  }
+}
+
+
+
+.section-single-post{
+  @include container;
+  max-width: 960px;
+  margin: 0px auto;
+  margin-bottom: 120px;
+
+  .body{
+    line-height: 1.6;
+  }
+
+  .thumbnail{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+
+  header{
+    margin-bottom: 20px;
+    h2{
+      text-transform: uppercase;      
+    }
+  }
+
+  .data{
+    @include data;
+  }
+
+  .sep{
+    @include sep;
+  }
+
+  .back{
+    margin-top: 60px;
+    a{
+      color: black;
+      font-weight: 600;
     }
   }
 }

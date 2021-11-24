@@ -9,84 +9,11 @@
       "categories": ["HTML", "JavaScript"]
     },
     {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 2",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "ruby"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 3",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["python", "java"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 4",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["c"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 5",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "javascript"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 6",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "javascript"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 7",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "javascript"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 8",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "javascript"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 9",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["html", "ruby"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 10",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["python", "java"]
-    },
-    {
-      "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro 11",
-      "thumbnail" : "aroma-e-tempeiro.jpg",
-      "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
-      "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
-      "categories": ["c"]
+      "id": "python-jogo-da-forca",
+      "title": "Jogo da Forca",
+      "thumbnail" : "jogo-da-forca.jpg",
+      "github": "https://github.com/vanderms/python-jogo-da-forca",      
+      "categories": ["Python"]
     }    
   ]  
 }

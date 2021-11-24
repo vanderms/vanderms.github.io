@@ -48,8 +48,7 @@ class Blog {
         card.classList.add('reverse');
       }
       
-      const post = posts[i];
-     
+      const post = posts[i];     
       
       const linkPath = `/#/posts/${post.id}/`;
 
@@ -93,6 +92,41 @@ class Blog {
 
     this.pagination.update(posts.length, page);
   }
+
+
+  async renderSinglePost(id){
+
+    const section = document.querySelector('.section-single-post');
+    const posts = await this.getPosts();
+    
+    const post = posts.find(post => post.id === id);
+
+    const title = section.querySelector('.title');
+    title.textContent = post.title;
+
+    const thumbnail = section.querySelector('.thumbnail');
+    thumbnail.src = `/assets/images/960/${post.thumbnail}`;
+
+    const response = await fetch(`/assets/blog/${post.id}.md`);
+
+    const date = section.querySelector('.date.item span');
+    date.textContent = post.date;
+
+    const author = section.querySelector(".author.item span");
+    author.textContent = post.author;
+
+    const tags = section.querySelector(".tags.item span");
+    tags.textContent = post.tags.join(", ");
+
+    if(response.ok){
+      const body = section.querySelector('.body');
+      const text = await response.text();       
+      const converter = new showdown.Converter();    
+      const html  = converter.makeHtml(text);
+      body.innerHTML = html;      
+    }
+  }
+
 
 
   static setEllipis(elem, text){

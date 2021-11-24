@@ -11,6 +11,7 @@ class Router {
     this._sections.blog = document.querySelector('.section-blog');
     this._sections.contact = document.querySelector('.section-contact');
     this._sections.singleProject = document.querySelector('.section-single-project');
+    this._sections.singlePost = document.querySelector('.section-single-post');
 
     this._page = null;
 
@@ -23,8 +24,7 @@ class Router {
       });
     });
 
-    window.addEventListener('popstate', ()=>{  
-      console.log('Hi');    
+    window.addEventListener('popstate', ()=>{     
        this.update(window.location.hash);
      });
     
@@ -44,6 +44,7 @@ class Router {
    
     if(hash === undefined) hash = window.location.hash;
     const portfolio = '#/portfolio/';
+    const posts = "#/posts/";
        
     const indexPaths = ['', '#', "#portfolio", '#contato', "#artigos"];    
     if(indexPaths.indexOf(hash) > -1){
@@ -52,6 +53,10 @@ class Router {
     else if(hash.indexOf(portfolio) == 0){
       const id = hash.slice(portfolio.length, -1);
       this.singleProject(id);
+    }
+    else if(hash.indexOf(posts) == 0){
+      const id = hash.slice(posts.length, -1);
+      this.singlePost(id);
     }
   
     this.updateCallbacks.forEach(callback => {      
@@ -65,6 +70,13 @@ class Router {
     this.hideAllAndScrollToTop();
     Portfolio.renderSingleProject(id);
     this._sections.singleProject.classList.remove('hidden');
+    this._page = 'single-project';
+  }
+
+  singlePost(id){
+    this.hideAllAndScrollToTop();
+    Blog.renderSinglePost(id);
+    this._sections.singlePost.classList.remove('hidden');
     this._page = 'single-project';
   }
 

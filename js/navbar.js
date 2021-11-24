@@ -52,7 +52,7 @@ class Navbar {
     else if(hash === '#contato'){
       this.links.contato.classList.add('active');
     }
-    else if(hash === "#artigos"){
+    else if(hash === "#artigos" || hash.indexOf('#/posts/') == 0){
       this.links.blog.classList.add('active');
     }
     this.currentLink = hash;
