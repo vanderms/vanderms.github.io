@@ -72,8 +72,10 @@ class Portfolio {
       const description = section.querySelector('.description');
       const text = await response.text();       
       const converter = new showdown.Converter();    
-      const html  = converter.makeHtml(text);
-      description.innerHTML = html;      
+      description.innerHTML  = converter.makeHtml(text);
+      description.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
     }
   }
 

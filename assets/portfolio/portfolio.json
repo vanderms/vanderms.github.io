@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "nova-data-structures",
-      "title": "Nova Data Structures",
+      "title": "Nova: Estruturas de Dados",
       "thumbnail" : "nova-data-structures.jpg",
       "github": "https://github.com/vanderms/simple-react-blog",      
       "categories": ["C"]
@@ -37,6 +37,14 @@
       "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
       "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",
       "categories": ["HTML", "SCSS", "JavaScript"]
+    },
+    {
+      "id": "mad-libs-react-site",
+      "title": "Madlibs",
+      "thumbnail" : "madlibs.jpg",
+      "github": "https://github.com/vanderms/mad-libs-react-site",
+      "live": "https://vanderms.github.io/mad-libs-react-site/#/",
+      "categories": ["React", "React-Router", "SCSS"]
     }
    
   ]  

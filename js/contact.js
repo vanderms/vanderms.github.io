@@ -35,7 +35,12 @@ class Contact{
       body: formData,
       method: "post"
     })
-    .then( response => response.text())
+    .then( response => {
+      if(!response.ok){
+        throw Error('response is not ok (out of range 200-299)');
+      }  
+      return response.text();      
+    })
     .then(text =>{
       if(text === 'success'){
         this.openModal('success', 'A sua mensagem foi enviada com sucesso!');          
