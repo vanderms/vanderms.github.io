@@ -79,9 +79,12 @@ class Blog {
       const response = await fetch(`/assets/blog/${post.id}.md`);
 
       if(response.ok){
-        const text = await response.text();       
+        let text = await response.text();       
         const summary = card.querySelector('.summary-container .text');
-        Blog.setEllipis(summary, text);
+        const converter = new showdown.Converter();
+        let idx = text.lastIndexOf(" ", 180);
+        text = text.substring(0, idx) + "...";
+        summary.innerHTML = converter.makeHtml(text);        
       }
       else {
         console.log(`not found ${post.id}`);
@@ -125,53 +128,7 @@ class Blog {
       const html  = converter.makeHtml(text);
       body.innerHTML = html;      
     }
-  }
-
-
-
-  static setEllipis(elem, text){
-    
-    const span = document.createElement("span");
-    span.textContent = " [...]";
-    
-    let min = 0;
-    let max = text.length - 1;
-  
-    while(max > min) {
-      
-      const middle = Math.ceil((min + max) / 2);
-      elem.innerHTML = text.substring(0, middle).replaceAll('\n', '<br/>');
-      elem.appendChild(span);
-      const spanRect = span.getBoundingClientRect();
-      const elemRect = elem.getBoundingClientRect();   
-
-      const interval = spanRect.height - 5;
-      
-      if(spanRect.bottom - elemRect.bottom > interval){
-        max = middle;      
-      }
-
-      else if(elemRect.bottom - spanRect.bottom > interval){
-        min = middle;      
-      }
-      
-      else if(elemRect.right - spanRect.right > 80){
-        min = middle;      
-      }
-      
-
-      else {
-        const lastSpace = text.lastIndexOf(" ", middle);
-        elem.innerHTML = text.substring(0, lastSpace).replaceAll('\n', '<br/>');
-        elem.appendChild(span);     
-        return true;
-      }
-    } 
-  
-    elem.innerHTML = text;
-    return false;
-  }
-
+  } 
 }
 
 

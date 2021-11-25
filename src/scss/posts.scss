@@ -126,10 +126,9 @@
           margin-top: 12px;          
           width: 100%;
 
-          .text{
-            height: 100px;
+          .text {            
             overflow: hidden;
-            line-height: 25px;
+            line-height: 1.6;            
           }
         }        
       }
@@ -157,6 +156,12 @@
   margin: 0px auto;
   margin-bottom: 120px;
   box-sizing: content-box;
+  @include media($tablet){
+    max-width: Min(640px, 80%);
+  }
+  @include media($mobile){
+    max-width: unset;
+  }
 
   .body{
     line-height: 1.6;

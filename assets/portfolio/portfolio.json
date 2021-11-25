@@ -24,7 +24,7 @@
     },
     {
       "id": "react-simple-blog",
-      "title": "Simple Blog",
+      "title": "A Simple Blog",
       "thumbnail" : "react-simple-blog.jpg",
       "github": "https://github.com/vanderms/simple-react-blog",
       "live": "https://vanderms.github.io/simple-react-blog/#/",

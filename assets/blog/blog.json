@@ -1,12 +1,12 @@
 {
   "posts" : [    
     {
-    "id": "pillars-of-creation",
-    "title": "Pilares da Criação",
-    "thumbnail" : "pillars-of-creation.jpg",   
-    "date" : "12/5/2020",
+    "id": "entendendo-o-yield-em-ruby-1sss",
+    "title": "Entendendo o yield em Ruby - parte I",
+    "thumbnail" : "uncut-gem.jpg",   
+    "date" : "25/11/2021",
     "author" : "vanderms",     
-    "tags": ["ciência", "astronomia"]
+    "tags": ["programação", "ruby" ]
     },
     {
       "id": "pillars-of-creation-2",

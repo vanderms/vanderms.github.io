@@ -77,6 +77,12 @@
   max-width:  Min(960px, 60%);
   margin: 0px auto;
   margin-bottom: 120px;
+  @include media($tablet){
+    max-width: Min(640px, 80%);
+  }
+  @include media($mobile){
+    max-width: unset;
+  }
 
   .description{
     line-height: 1.6;
