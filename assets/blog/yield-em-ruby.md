@@ -17,7 +17,7 @@ end
 
 ```
 
-Em todos os casos acima, os blocos, iniciados pela palavra reservada **`do`** ou pela chave **`{`**, são passados, respectivamente, para os métodos **`each`**, **`loop`** e **`times`** e, então, executados dentro desses métodos.
+Em todos os casos acima, os blocos, iniciados pela palavra reservada **`do`** ou pela chave **`{`**, são passados, respectivamente, para os métodos **`each`**, **`upto`** e **`times`** e, então, executados dentro desses métodos.
 
 E aqui entra o **`yield`**, embora ele não seja o único a permitir que isso aconteça (v.g. também é possível executar _pedaços de código_ com procs, lambdas e enumerators), o **`yield`** é provavelmente a forma mais simples e eficiente de se fazer isso. Veja os seguintes exemplos:
 
