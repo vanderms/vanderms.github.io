@@ -126,7 +126,10 @@ class Blog {
       const text = await response.text();       
       const converter = new showdown.Converter();    
       const html  = converter.makeHtml(text);
-      body.innerHTML = html;      
+      body.innerHTML = html;    
+      body.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });  
     }
   } 
 }
