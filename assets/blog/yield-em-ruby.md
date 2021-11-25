@@ -1,8 +1,8 @@
 De um forma bem simples, em Ruby, o operador **`yield`** é responsável por executar, dentro de um método, um bloco de código passado como argumento.
 
-A definição acima é bem curta, mas talvez não seja muito óbvia e é natural supor que algumas pessoas estejam agora se perguntando: mas o que é um bloco de código? Ou, como é que se passa um bloco como argumento? Vamos por partes. 
+A definição acima é bem sucinta, mas talvez não seja lá muito óbvia e é natural supor que algumas pessoas estejam agora se perguntando: mas o que é um bloco de código? Ou, como é que se passa um bloco como argumento? Vejamos: 
 
-Em Ruby, é algo bem comum a criação de blocos de código _do lado direito_ da invocação de um método. Você provavelmente já deve ter visto scripts como esses:
+Em Ruby, é bem comum a criação de blocos de código _do lado direito_ da invocação de um método. Você provavelmente deve estar familiarizado com scripts como esse:
 
 ```
 [0, 1, 2].each do |i|
@@ -19,9 +19,23 @@ end
 
 Em todos os casos acima, os blocos, iniciados pela palavra reservada **`do`** ou pela chave **`{`**, são passados, respectivamente, para os métodos **`each`**, **`loop`** e **`times`** e, então, executados dentro desses métodos.
 
-E aqui entra o **`yield`**, embora ele não seja o único a permitir que isso aconteça (v.g. também é possível executar blocos com procs, lambdas e enumerators), o **`yield`** é provavelmente a forma mais simples e rápida de se fazer isso. Por exemplo, confira o seguinte código:
+E aqui entra o **`yield`**, embora ele não seja o único a permitir que isso aconteça (v.g. também é possível executar _pedaços de código_ com procs, lambdas e enumerators), o **`yield`** é provavelmente a forma mais simples e eficiente de se fazer isso. Veja os seguintes exemplos:
 
 ```
+#Exemplo 1:
+def execute_algo
+  yield
+end
+
+execute_algo do
+  puts "Oi"
+end
+
+# saída:
+# "Oi"
+
+
+#Exemplo 2:
 def produza_o_valor_zero
   yield 0    
 end
@@ -32,45 +46,29 @@ end
 
 # saída:
 # 0  
-```
 
-No código acima, quando o operador **`yield`** é executado no método **`produza_o_valor_zero`**, Ruby _invoca_ o bloco de código e passa para ele como parâmetro **`i`** o valor 0.
-
-O operador **`yield`** não precisa necessariamente estar em uma instrução isolada. Pelo contrário, uma posição comum para esse operador é ficar dentro de um laço de repetição. No caso abaixo, por exemplo, o metodo **`produza_infinitos_zeros`** produz, com efeito, um loop infinito de zeros.
-
-```
-def produza_infinitos_zeros 
-  yield 0 while true
-end
-
-produza_infinitos_zeros do |i|
-  print i
-end
-
-# saída
-# 000000000000000000000000000000...
-```
-
-Ou dentro de um **`if`**. Confira-se:
-
-```
-def tipo_de_numero(numero)
-  if numero.even?
-    yield "par"
-  else
-    yield "ímpar"
+#Exemplo 3:
+def itere_um_array(array)
+  array.each do |valor|
+    yield valor
   end
 end
 
-tipo_de_numero(5) do |tipo|
-  puts tipo
+itere_um_array([1, 2, 3]) do |valor|
+  print "#{valor} "
 end
 
 # saída:
-# ímpar
+# 1 2 3
 ```
 
-Um caso especial com o **`if`** (ou **`unless`**) é quando é necessário saber se um bloco foi passado como argumento para a função. Nesses casos, Ruby providencia o método **`block_given?`**. Confira-se:
+O _Exemplo 1_ é o método mais simples possível de ser criado contendo o **`yield`**. Ele funciona da seguinte maneira, quando o  **`yield`** é executado, Ruby roda o bloco passado como argumento e por isso imprime no terminal a palavra _Oi_.
+
+O _Exemplo 2_, por sua vez, demonstra que o **`yield`** pode passar um (ou mais argumentos) para o bloco que de código. No caso, é passado o valor _0_ para o parâmetro **`i`** do bloco.
+
+E no _Exemplo 3_, é possível perceber que o método que contém o **`yield`** pode receber outros argumentos além do bloco. No script, o método **`itere_um_array`** recebe um array como parâmetro e _yielda_ (ou produz, em bom português) cada um dos valores contidos nesse array.
+
+Outro detalhe importante é que se um método contém o operador **`yield`**, ele não precisa necessariamente ser invocado com um bloco – o bloco é opcional. Contudo, se o bloco não for utilizado, o **`yield`** não poderá ser executado dentro do método. Para evitar que isso ocorra, existe o método **`block_given?`**, o qual retorna verdadeiro se um bloco foi passado, ou falso, caso contrário. Confira-se o seguinte exemplo:
 
 ```
 def verifique_se_tem_bloco
@@ -81,56 +79,84 @@ def verifique_se_tem_bloco
   end
 end
 
-verifique_se_tem_bloco #aqui o método é invocado sem que seja passado um bloco de código
+verifique_se_tem_bloco()
 
 # saida:
 # não tenho um bloco
 ```
 
-Note que na cláusula **`else`** é usado **`puts "não tem"`** e não o **`yield`**, porque, como não foi passado nenhum bloco de código, se o **`yield`** fosse executado, Ruby irá lançar um erro do tipo **`LocalJumpError`**.
+Note que na cláusula **`else`** foi usada a instrução **`puts "não tenho um bloco"`** e não algo como **`yield "não tenho um bloco"`**, porque, como não foi passado nenhum bloco de código, se o **`yield`** fosse executado dentro do método, Ruby irá lançar um erro do tipo **`LocalJumpError`**.
 
-Agora é hora para um exercício: com base nas informações acima, você poderia desenvolver um método, para iterar um array de duas dimensões. Por exemplo, considerando a tabela:
+Mostrado o funcionamento básico desse operador, outros pontos importantes que precisam ser esclarecidos são: _que tipo de problemas práticos o **`yield`** resolve ou quando é aconselhado o seu uso?_
 
-```
-  tabela = [[8, 7, 3], [4, 9, 1], [2, 6, 5]]
-```
+Um possível uso do **`yield`** seria criar um iterador flexível de estruturas de dados, onde as operações executadas em cada iteração podem variar. 
 
-O resultado esperado seria:
+Um exemplo, suponhamos o seguinte problema: eu tenho um array multidimensional de inteiros e preciso saber se esse array contem mais valores pares ou ímpares. Se contiver mais valores pares, eu devo dividir todos os valores pares do array por _2_. E se tiver mais valores impares, eu devo multiplicar todos os valores ímpares por 3 e depois somar a 1.
 
-```
-  8 7 3 4 9 1 2 6 5
-```
-
-Para isso, você deverá necessariamente usar o operador **`yield`**. Tente fazer por conta própria e se não conseguir (ou se não estiver tão interessado assim em tabelas), você poderá conferir uma possível solução logo abaixo.
-
-.
-
-.
-
-.
-
-.
-
-**Solução**:
+Sem usar o **`yield`**, uma solução possível seria:
 
 ```
-def iterar(tabela) 
-    
-  tabela.each do |linha|
-    linha.each do |valor|
-      yield valor
+tabela = [[8, 17, 13], [24, 9, 11], [32, 46, 15]]
+pares = 0
+impares = 0
 
+tabela.each do |linha|
+  linha.each do |valor|
+    if valor.even?
+      pares+= 1
+    else
+      impares+= 1
     end
   end
 end
-
-tabela = [[8, 7, 3], [4, 9, 1], [2, 6, 5]]
-
-iterar(tabela) do |valor|
-  print "#{valor} "
+ 
+tabela.each_index do |i|
+  tabela[i].each_index do |j|
+    if pares > impares && tabela[i][j].even?
+      tabela[i][j] /= 2
+    elsif impares > pares && tabela[i][j].odd?
+      tabela[i][j] = tabela[i][j] * 3 + 1
+    end    
+  end
 end
+
+print tabela
+
+# saida
+# [[8, 52, 40], [24, 28, 34], [32, 46, 46]]
 ```
 
-E aí como foi? Fácil, não é?
+No script acima, observe que é necessário a criação, duas vezes, de dois laços de repeticão para iterar o array multidimensional. Agora confira, no exemplo abaixo, como o **`yield`** pode ser uma ótima ferramenta para deixar o código mais limpo e elegante:
 
-Dúvidas, sugestões ou erros ☺, sinta-se livre para enviar uma mensagem através do [formulário de contato](#contato).  
+```
+tabela = [[8, 17, 13], [24, 9, 11], [32, 46, 15]]
+pares = 0
+impares = 0
+
+def iterar_array(tabela)
+  tabela.each_index {|i| tabela[i].each_index {|j| yield [i, j] }}
+end
+
+iterar_array(tabela) do |i, j|
+  if tabela[i][j].even?
+    pares+= 1
+  else
+    impares+= 1
+  end
+end
+
+iterar_array(tabela) do |i, j|
+  if pares > impares && tabela[i][j].even?
+    tabela[i][j] /= 2
+  elsif impares > pares && tabela[i][j].odd?
+    tabela[i][j] = tabela[i][j] * 3 + 1
+  end
+end
+
+print tabela
+
+# saída
+# [[8, 52, 40], [24, 28, 34], [32, 46, 46]]
+```
+
+Ainda tem dúvidas? Gostaria de fazer uma sugestão? Encontrou algum erro? sinta-se livre para enviar uma mensagem através do [formulário de contato](#contato) ou mande um email para vanderms.84@gmail.com.  
