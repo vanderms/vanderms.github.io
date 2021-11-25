@@ -73,7 +73,8 @@
 
 .section-single-project{
   @include container;
-  max-width: 960px;
+  box-sizing: content-box;
+  max-width:  Min(960px, 60%);
   margin: 0px auto;
   margin-bottom: 120px;
 

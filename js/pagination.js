@@ -17,12 +17,12 @@ class Pagination {
 
   update(size, page){    
    
-    const totalPages = Math.ceil(size / this.itemsPerPage);   
-    
-    if(totalPages == 1){
-      this.buttons.forEach(btn => btn.classList.add('hidden'));
-    }
+    const totalPages = Math.ceil(size / this.itemsPerPage);
+    this.root.classList.remove('hidden');
 
+    if(totalPages == 1){
+      this.root.classList.add('hidden');     
+    }
     else if(totalPages <= 7){
       this.buttons.forEach((btn, index) =>{
         index++;       

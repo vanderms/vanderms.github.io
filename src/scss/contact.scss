@@ -1,12 +1,9 @@
 @import 'utilities.scss';
 
 .section-contact{
-  @include flex(column, flex-start, center);
- 
+  @include flex(column, flex-start, center); 
   margin-bottom: 80px;
-  &.section{
-    padding-top: 120px;
-  }
+ 
     
   .contact-container{
     @include container;    

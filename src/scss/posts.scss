@@ -153,9 +153,10 @@
 
 .section-single-post{
   @include container;
-  max-width: 960px;
+  max-width: Min(960px, 60%);
   margin: 0px auto;
   margin-bottom: 120px;
+  box-sizing: content-box;
 
   .body{
     line-height: 1.6;

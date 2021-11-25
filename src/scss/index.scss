@@ -72,14 +72,22 @@ h2{
 }
 
 
-.section{
-  padding-top: 160px;
+.section {
+  padding-top: 120px;
   >*:not(:first-child){margin-top: 80px; }
 
   @include media($laptop){
     padding-top: 100px;
     >*:not(:first-child){margin-top: 60px; }
   } 
+  @include media($mobile){
+    padding-top: 80px;
+    >*:not(:first-child){margin-top: 60px; }
+  } 
+}
+
+.section-single-post, .section-single-project{
+  padding-top: 60px;
 }
 
 .section-header{
