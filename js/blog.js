@@ -38,7 +38,8 @@ class Blog {
       const card = this.cards[i % 2];    
       
       if(i >= posts.length){
-        card.classList.add('hidden');  
+        card.classList.add('hidden'); 
+        return; 
       }
       card.classList.remove('hidden');
       card.classList.add('not-visible');
@@ -82,7 +83,8 @@ class Blog {
         let text = await response.text();       
         const summary = card.querySelector('.summary-container .text');
         const converter = new showdown.Converter();
-        let idx = text.lastIndexOf(" ", 180);
+        text = text.substring(0, text.indexOf('\n'));
+        let idx = text.lastIndexOf(" ", 140);
         text = text.substring(0, idx) + "...";
         summary.innerHTML = converter.makeHtml(text);        
       }

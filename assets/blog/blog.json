@@ -7,14 +7,6 @@
     "date" : "25/11/2021",
     "author" : "vanderms",     
     "tags": ["programação", "ruby" ]
-    },
-    {
-      "id": "pillars-of-creation-2",
-      "title": "Pilares da Criação 2",
-      "thumbnail" : "pillars-of-creation.jpg",   
-      "date" : "12/5/2020",
-      "author" : "vanderms",       
-      "tags": ["nebulosas", "astronomia"]
-    }
+    }   
   ]
 }

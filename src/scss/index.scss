@@ -74,15 +74,15 @@ h2{
 
 .section {
   padding-top: 120px;
-  >*:not(:first-child){margin-top: 80px; }
+  >*:not(:first-child){margin-top: 70px; }
 
   @include media($laptop){
     padding-top: 100px;
-    >*:not(:first-child){margin-top: 60px; }
+    >*:not(:first-child){margin-top: 50px; }
   } 
   @include media($mobile){
     padding-top: 80px;
-    >*:not(:first-child){margin-top: 60px; }
+    >*:not(:first-child){margin-top: 40px; }
   } 
 }
 
