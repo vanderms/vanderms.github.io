@@ -31,7 +31,7 @@ class Contact{
     formData.append('message', this.message.value);
     
     
-    fetch("https://www.pwcode.com.br/functions/vanderms-io-contact-form.php", {
+    fetch("https://www.pwcode.com.br/functions/vanderms-io-contact-form/", {
       body: formData,
       method: "post"
     })
