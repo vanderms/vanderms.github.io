@@ -7,13 +7,12 @@
 
   .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 33.3%);
-    @include media($tablet){ grid-template-columns: repeat(2, 50%); }
-    @include media($mobile){ grid-template-columns: 100%; }
-    gap: 40px 20px;
+    grid-template-columns: repeat(3, 1fr);
+    @include media($tablet){ grid-template-columns: repeat(2, 1fr); }
+    @include media($mobile){ grid-template-columns: 1fr; }
+    gap: 60px;
 
     .card{
-      padding: 8px;
         
       border-radius: 3px;      
       color: black;     
