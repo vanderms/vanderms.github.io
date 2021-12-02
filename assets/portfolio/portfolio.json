@@ -45,6 +45,14 @@
       "github": "https://github.com/vanderms/mad-libs-react-site",
       "live": "https://vanderms.github.io/mad-libs-react-site/#/",
       "categories": ["React", "React-Router", "SCSS"]
+    },
+    {
+      "id": "ecommerce-product",
+      "title": "Ecommerce Product",
+      "thumbnail" : "ecommerce-product-fmentor.jpg",
+      "github": "https://github.com/vanderms/ecommerce-product-fe-mentor",
+      "live": "https://vanderms.github.io/ecommerce-product-fe-mentor/",
+      "categories": ["TypeScript", "SCSS", "HTML"]
     }
    
   ]  
