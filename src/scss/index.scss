@@ -66,14 +66,15 @@ h1 {
 }
 
 h2{
-  font-size: 32px;
-  @include media ($laptop){font-size: 26px; }
-  @include media($mobile){font-size: 22px; }
+  font-size: 42px;
+  @include media ($laptop){font-size: 32px; }
+  @include media($mobile){font-size: 26px; }
 }
 
 
 .section {
   padding-top: 120px;
+  padding-bottom: 50px;
   >*:not(:first-child){margin-top: 70px; }
 
   @include media($laptop){
