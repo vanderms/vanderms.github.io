@@ -11,6 +11,10 @@ class Portfolio {
     this.cards = this.container.querySelectorAll(".card");  
     this.pagination = new Pagination(this.section.querySelector('.component-pagination'), 6, page =>{
       this.renderIndexCards(page);
+      const bodyRect = document.body.getBoundingClientRect();
+      const sectionRect = this.section.getBoundingClientRect();
+      const offset   = sectionRect.top - bodyRect.top;   
+      window.scrollTo(0, offset);
     });      
     this.getProjects();
   }
@@ -125,10 +129,7 @@ class Portfolio {
       card.classList.remove("hidden");
     });   
     
-    const bodyRect = document.body.getBoundingClientRect();
-    const sectionRect = this.section.getBoundingClientRect();
-    const offset   = sectionRect.top - bodyRect.top;   
-    window.scrollTo(0, offset);
+   
   }
 }
 
