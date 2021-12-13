@@ -82,7 +82,8 @@ class Portfolio {
 
   updateCards(projects, page){
    
-    const start = (page - 1) * 6;    
+    const start = (page - 1) * 6;        
+    
 
     this.cards.forEach((card, index)=>{
       
@@ -122,8 +123,13 @@ class Portfolio {
         icons.appendChild(default_icon.content.cloneNode(true));   
       }
       card.classList.remove("hidden");
-    });    
-  }  
+    });   
+    
+    const bodyRect = document.body.getBoundingClientRect();
+    const sectionRect = this.section.getBoundingClientRect();
+    const offset   = sectionRect.top - bodyRect.top;   
+    window.scrollTo(0, offset);
+  }
 }
 
 

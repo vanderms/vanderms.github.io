@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "nova-data-structures",
-      "title": "Nova: Estruturas de Dados",
+      "title": "Nova data structures",
       "thumbnail" : "nova-data-structures.jpg",
       "github": "https://github.com/vanderms/simple-react-blog",      
       "categories": ["C"]
