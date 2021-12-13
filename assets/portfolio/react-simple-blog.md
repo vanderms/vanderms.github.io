@@ -1,3 +1,3 @@
-Trata-se de um projecto escrito em ReactJS, consistente em um blog com as operações de ler, criar e deletar.
+It is a project written in ReactJS, consisting of a blog with read, create and delete operations.
 
-Os dados são inicializados com um arquivo JSON, então persistidos com local storage.
+Data is initialized with a JSON file, then persisted with local storage.

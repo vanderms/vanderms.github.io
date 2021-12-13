@@ -1,3 +1,3 @@
-Este projeto implementa o famoso jogando da forca usando a interface gráfica de linha de comandos.
+This project implements the famous hangman game using the command line graphical interface.
 
-Ele foi projetado para servir como projeto intermediário, na época em que eu dava aula particular de Pyhton. Embora relativamente simples, vários conceitos são explorados como a definição, uso e a importância das funções na resolução de problemas.
+It was designed to serve as an intermediate project when I was tutoring Pyhton. Although relatively simple, several concepts are explored such as the definition, use and importance of functions in problem solving.

@@ -1,1 +1,1 @@
-O projeto é um aplicativo web que implementa o famoso jogo de palavras Madlibs.
+The project is a web application that implements the famous Madlibs word game.

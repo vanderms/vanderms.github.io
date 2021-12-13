@@ -1,3 +1,3 @@
-O projeto se trata de uma Landing Page para uma Lavanderia. 
+The project is about a Landing Page for a Laundry.
 
-O projeto foi realizado em duas fases, executada cada uma delas em uma semana. Na primeira semana, foi realizado o design, usando-se o software Adobe XD. Enquanto na segunda semana, o design foi convertido em uma página estática utilizando-se o framework ReactJs.
+The project was carried out in two phases, each one lasting one week. In the first week, the design was implemented using Adobe XD software. While in the second week, the design was converted to a static page using the ReactJs framework.

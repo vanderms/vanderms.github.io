@@ -1,3 +1,3 @@
-O projeto consiste em um conjunto de estruturas de dados criadas para a linguagem C. Inclui: um array dinâmico, uma lista duplamente encadeada, uma quadtree, duas hashtables com as chaves do tipo string e int64_t, um tipo string e wrappers para os tipos primitivos.
+The project consists of a set of data structures created for the C language. It includes: a dynamic array, a double-linked list, a quadtree, two hashtables with string type keys and int64_t, a string type and wrappers for the primitive types.
 
-Há também scripts para tratamento de erros, verificação de vazamento de memória e de verificação de dangling pointers que ocorrem com o uso indevido ou sem as precauções necessárias da função free.
+There are also methods for error handling and a hashtable structure to check for memory leaks.

@@ -9,7 +9,7 @@
     },
     {
       "id": "laundry-lavanderia",
-      "title": "Laundry Lavanderia",
+      "title": "Laundry",
       "thumbnail" : "laundry.jpg",
       "github": "https://github.com/vanderms/laundry-template",
       "live": "https://vanderms.github.io/laundry-template/",
@@ -17,7 +17,7 @@
     },    
     {
       "id": "python-jogo-da-forca",
-      "title": "Jogo da Forca",
+      "title": "Hangman CLI",
       "thumbnail" : "jogo-da-forca.jpg",
       "github": "https://github.com/vanderms/python-jogo-da-forca",      
       "categories": ["Python", "CLI"]
@@ -32,7 +32,7 @@
     },   
     {
       "id": "aroma-e-tempeiro-restaurante",
-      "title": "Aroma e Tempeiro",
+      "title": "Aroma & Tempeiro",
       "thumbnail" : "aroma-e-tempeiro.jpg",
       "github": "https://github.com/vanderms/aroma-e-tempeiro-restaurante",
       "live": "https://vanderms.github.io/aroma-e-tempeiro-restaurante/",

@@ -46,7 +46,7 @@ class Portfolio {
     thumbnail.src = `/assets/images/960/${project.thumbnail}`;
 
     const techs = section.querySelector('.techs');
-    techs.textContent = `Principais tecnologias utilizadas no projeto: ${project.categories.join(', ')}.`
+    techs.textContent = `Main technologies used in this project: ${project.categories.join(', ')}.`
 
     const live = section.querySelector('.see-live');
     if(project.live){    
