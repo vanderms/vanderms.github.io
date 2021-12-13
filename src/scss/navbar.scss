@@ -131,7 +131,7 @@ $sidebar-height: 56px;
   .social-links{
     @include flex(row, flex-end, center);
     @include ul-no-decoration;    
-    margin-left: 80px;
+    margin-left: 100px;
     @include media($tablet){
       margin-left: 0px;
       margin-top: 60px;
