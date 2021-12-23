@@ -53,6 +53,14 @@
       "github": "https://github.com/vanderms/ecommerce-product-fe-mentor",
       "live": "https://vanderms.github.io/ecommerce-product-fe-mentor/",
       "categories": ["TypeScript", "SCSS", "HTML"]
+    },
+    {
+      "id": "nextjs-photo-gallery",
+      "title": "NextJs Photo Gallery",
+      "thumbnail" : "next-js-photo-gallery.jpg",
+      "github": "https://github.com/vanderms/nextjs-photo-gallery",
+      "live": "https://vanderms.github.io/nextjs-photo-gallery",
+      "categories": ["React", "NextJs", "HTML"]
     }
    
   ]  
