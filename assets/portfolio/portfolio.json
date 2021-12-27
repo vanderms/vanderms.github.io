@@ -61,8 +61,15 @@
       "github": "https://github.com/vanderms/nextjs-photo-gallery",
       "live": "https://vanderms.github.io/nextjs-photo-gallery",
       "categories": ["React", "NextJs", "HTML"]
-    }
-   
+    },
+    {
+      "id": "frontend-mentor-space-tourism",
+      "title": "Space Tourism",
+      "thumbnail" : "space-tourism.jpg",
+      "github": "https://github.com/vanderms/frontend-mentor-space-tourism",
+      "live": "https://frontend-mentor-space-tourism.vercel.app/",
+      "categories": ["React", "NextJs", "SCSS"]
+    }   
   ]  
 }
 
