@@ -1,0 +1,1 @@
+Recentemente, os principais navegadores 

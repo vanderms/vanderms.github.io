@@ -69,6 +69,14 @@
       "github": "https://github.com/vanderms/frontend-mentor-space-tourism",
       "live": "https://frontend-mentor-space-tourism.vercel.app/",
       "categories": ["React", "NextJs", "SCSS"]
+    },
+    {
+      "id": "people-tech-challenge",
+      "title": "People Tech",
+      "thumbnail" : "people-tech-challenge.jpg",
+      "github": "https://github.com/vanderms/tech-people-challenge",
+      "live": "https://tech-people-challenge.vercel.app/",
+      "categories": ["React", "NextJs", "SCSS"]
     }   
   ]  
 }
